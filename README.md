@@ -1,45 +1,47 @@
 ### 🎮 JavaFX Game Portal ###
 This project is a JavaFX-based 2D educational game platform that includes a login/signup UI, database integration, and an evolving Treasure Hunting Adventure Game focused on learning and problem-solving.
 
-🛠 Features
-🔐 Authentication System
-Login Page
+### 🛠 Features ###
 
-Signup Page
+## 🔐 Authentication System ##
+> Login Page
 
-Scene switching between pages
+> Signup Page
 
-User information stored in MySQL
+> Scene switching between pages
 
-🧩 Game Platform Features
-Reading Mode: Learn through interactive reading content and quizzes
+> User information stored in MySQL
 
-Gaming Mode: Hunt for code coupons, solve programming puzzles, unlock levels
+### 🧩 Game Platform Features ###
 
-Multiplayer Mode (Planned): Compete in real-time using sockets & threads
+> Reading Mode: Learn through interactive reading content and quizzes
 
-Team-Up Mode: Collaborate with friends to solve challenges
+> Gaming Mode: Hunt for code coupons, solve programming puzzles, unlock levels
 
-Instructor Help: Access hints and clues
+> Multiplayer Mode (Planned): Compete in real-time using sockets & threads
 
-Lives System: Lose and regain lives with bonus rounds
+> Team-Up Mode: Collaborate with friends to solve challenges
 
-🎨 Game UI Design
-Built using JavaFX + FXML + Scene Builder
+> Instructor Help: Access hints and clues
 
-Custom CSS for wood-style frame, golden text, and blurred background
+> Lives System: Lose and regain lives with bonus rounds
 
-Top-level dashboard includes:
+### 🎨 Game UI Design ###
 
-Reading Mode
+> Built using JavaFX + FXML + Scene Builder
 
-Gaming Mode
+> Custom CSS for wood-style frame, golden text, and blurred background
 
-Settings
+> Top-level dashboard includes:
 
-Knowledge Level & Points Display
+    * Reading Mode
 
-Logout Button
+    * Gaming Mode
+
+    * Settings
+
+    * Knowledge Level & Points Display
+
 
 
 
