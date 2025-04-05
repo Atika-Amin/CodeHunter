@@ -40,7 +40,12 @@ This project is a JavaFX-based 2D educational game platform that includes a logi
 
     * Settings
 
-    * Knowledge Level & Points Display
+## 💡 Educational Goals ##
+
+. Teach programming logic through puzzles
+. Promote reading comprehension
+. Introduce multiplayer collaboration
+. Improve problem-solving skills
 
 
 
