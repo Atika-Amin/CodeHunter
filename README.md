@@ -1,0 +1,1 @@
+This project is a JavaFX-based 2D educational game platform that includes a login/signup UI, database integration, and an evolving Treasure Hunting Adventure Game focused on learning and problem-solving.
