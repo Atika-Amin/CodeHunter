@@ -1,5 +1,3 @@
-## 🎮 JavaFX Game Portal ##
-
 # 🕹️ Code Hunter - JavaFX Educational Game
 
 **Code Hunter** is an engaging 2D educational game built with **JavaFX**. The game combines learning and fun through two exciting modes: **Reading Mode** and **Gaming Mode**. It features user authentication, secure login/signup, and multiplayer/team-up options, creating an immersive and rewarding coding adventure.
