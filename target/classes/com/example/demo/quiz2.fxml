@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Quiz2Controller">
+
+    <!-- Define ToggleGroups -->
+    <fx:define>
+        <ToggleGroup fx:id="group1"/>
+        <ToggleGroup fx:id="group2"/>
+        <ToggleGroup fx:id="group3"/>
+    </fx:define>
+
+    <!-- Full Page Background -->
+    <ImageView fitHeight="640.0" fitWidth="960.0" styleClass="background-image">
+        <image>
+            <Image url="@Frames/bg_image.JPG"/>
+        </image>
+    </ImageView>
+
+    <!-- Wooden Frame -->
+    <ImageView fitHeight="550.0" fitWidth="515.0" layoutX="200.0">
+        <image>
+            <Image url="@Frames/setting_BG.png"/>
+        </image>
+    </ImageView>
+
+    <!-- Scrollable Quiz Content -->
+    <ScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutX="278.0" layoutY="88.0" prefHeight="381.0" prefWidth="368.0" styleClass="slide-scroll" vbarPolicy="AS_NEEDED">
+        <content>
+            <VBox fx:id="quizBox" spacing="20.0" styleClass="slide-text" prefWidth="340.0" maxWidth="340.0">
+
+                <!-- Section: Question 1 -->
+                <VBox spacing="10.0" styleClass="quiz-section">
+                    <Label wrapText="true" maxWidth="340.0"
+                           text="1. What will this code print?&#10;&#10;#include &lt;stdio.h&gt;&#10;int main() {&#10;    int temp = 10;&#10;    if(temp &lt;= 0) {&#10;        printf(&quot;Freezing\\n&quot;);&#10;    } else {&#10;        printf(&quot;Warm\\n&quot;);&#10;    }&#10;    return 0;&#10;}" />
+                    <RadioButton text="Freezing" toggleGroup="$group1"/>
+                    <RadioButton text="Warm" toggleGroup="$group1"/>
+                    <RadioButton text="Error" toggleGroup="$group1"/>
+                </VBox>
+
+                <!-- Section: Question 2 -->
+                <VBox spacing="10.0" styleClass="quiz-section">
+                    <Label wrapText="true" maxWidth="340.0"
+                           text="2. What is the output of this nested if C code?&#10;&#10;int score = 65;&#10;if(score &gt;= 40) {&#10;    if(score &gt;= 70) {&#10;        printf(&quot;Distinction\\n&quot;);&#10;    } else {&#10;        printf(&quot;Pass\\n&quot;);&#10;    }&#10;} else {&#10;    printf(&quot;Fail\\n&quot;);&#10;}" />
+                    <RadioButton text="Distinction" toggleGroup="$group2"/>
+                    <RadioButton text="Pass" toggleGroup="$group2"/>
+                    <RadioButton text="Fail" toggleGroup="$group2"/>
+                </VBox>
+
+                <!-- Section: Question 3 -->
+                <VBox spacing="10.0" styleClass="quiz-section">
+                    <Label wrapText="true" maxWidth="340.0"
+                           text="3. What does this code output?&#10;&#10;int option = 2;&#10;switch(option) {&#10;    case 1: printf(&quot;Play\\n&quot;); break;&#10;    case 2: printf(&quot;Pause\\n&quot;); break;&#10;    case 3: printf(&quot;Stop\\n&quot;); break;&#10;    default: printf(&quot;Invalid\\n&quot;);&#10;}" />
+                    <RadioButton text="Play" toggleGroup="$group3"/>
+                    <RadioButton text="Pause" toggleGroup="$group3"/>
+                    <RadioButton text="Stop" toggleGroup="$group3"/>
+                    <RadioButton text="Invalid" toggleGroup="$group3"/>
+                </VBox>
+
+                <!-- Section: Question 4 -->
+                <VBox spacing="10.0" styleClass="quiz-section">
+                    <Label wrapText="true" maxWidth="340.0"
+                           text="4. Write C code to print even numbers from 2 to 10 using a `for` loop." />
+                    <TextArea fx:id="answer4" prefRowCount="3" wrapText="true"/>
+                </VBox>
+
+                <!-- Section: Question 5 -->
+                <VBox spacing="10.0" styleClass="quiz-section">
+                    <Label wrapText="true" maxWidth="340.0"
+                           text="5. Write C code to print numbers from 10 to 1 using a `while` loop." />
+                    <TextArea fx:id="answer5" prefRowCount="3" wrapText="true"/>
+                </VBox>
+
+            </VBox>
+        </content>
+    </ScrollPane>
+
+    <!-- Submit Button -->
+    <Button fx:id="submitQuizButton" layoutX="602.0" layoutY="535.0" onAction="#submitQuiz" styleClass="quiz-button" text="Submit"/>
+
+    <!-- Home Icon -->
+    <ImageView fx:id="homeIcon" fitHeight="55.0" fitWidth="55.0" layoutX="850.0" layoutY="560.0" onMouseClicked="#goBackToHome" pickOnBounds="true" preserveRatio="true" styleClass="home-icon">
+        <image>
+            <Image url="@Frames/Back_Home.png"/>
+        </image>
+    </ImageView>
+
+</AnchorPane>

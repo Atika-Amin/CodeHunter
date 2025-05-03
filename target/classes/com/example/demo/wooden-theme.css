@@ -1,0 +1,28 @@
+/* wooden-theme.css */
+.wooden-alert {
+    -fx-background-color: #d2b48c; /* tan color */
+    -fx-border-color: #8b4513;     /* saddle brown */
+    -fx-border-width: 2px;
+    -fx-padding: 15px;
+    -fx-font-size: 14px;
+    -fx-text-fill: #4b2e1f;        /* deep brown text */
+}
+
+.wooden-alert .header-panel {
+    -fx-background-color: #deb887; /* burlywood */
+}
+
+.wooden-alert .content {
+    -fx-text-fill: #3e2c1c;
+}
+
+.dialog-pane > .button-bar > .container {
+    -fx-background-color: transparent;
+}
+
+.dialog-pane .button {
+    -fx-background-color: #a0522d; /* sienna */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5;
+}

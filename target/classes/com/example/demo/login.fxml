@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.LoginController">
+
+    <!-- Background Image (Unchanged, no animation) -->
+    <ImageView fitHeight="640" fitWidth="960" styleClass="background-image">
+        <image>
+            <Image url="@Frames/bg_image.JPG" />
+        </image>
+    </ImageView>
+
+    <!-- Group containing only the elements to zoom in (Wooden Frame, Title, Form, Buttons) -->
+    <Group fx:id="loginGroup" layoutX="171.0" layoutY="109.0">
+
+        <!-- Wooden Frame Image -->
+        <ImageView fx:id="woodenFrame" fitHeight="372.0" fitWidth="563.0" layoutX="43.0" layoutY="8.0">
+            <image>
+                <Image url="@Frames/wood_frame.png" />
+            </image>
+        </ImageView>
+
+        <!-- Login Box (Inside the Frame) -->
+        <VBox fx:id="loginBox" alignment="CENTER" layoutX="185.0" layoutY="104.0" prefHeight="205.0" prefWidth="280.0" spacing="10">
+            <TextField fx:id="usernameField" prefHeight="38.0" prefWidth="280.0" promptText="Enter Username" styleClass="input-field" />
+            <PasswordField fx:id="passwordField" prefHeight="41.0" prefWidth="280.0" promptText="Enter Password" styleClass="input-field" />
+            <HBox spacing="10">
+                <Button fx:id="loginButton" onAction="#handleLogin" prefHeight="55.0" prefWidth="136.0" styleClass="wooden-button" text="LOGIN" />
+                <Button fx:id="signupButton" onAction="#switchToSignup" prefHeight="55.0" prefWidth="133.0" styleClass="wooden-button" text="SIGN UP" />
+            </HBox>
+        </VBox>
+
+        <!-- Login Title -->
+        <Label fx:id="titleLabel" layoutX="266.0" layoutY="14.0" prefHeight="59.0" prefWidth="100.0" styleClass="title-label" text="LOGIN" />
+
+    </Group>
+    <!-- Music Icon -->
+    <ImageView fx:id="musicIcon" fitHeight="55.0" fitWidth="55.0" layoutX="69.0" layoutY="561.0" onMouseClicked="#toggleMusic" pickOnBounds="true" preserveRatio="true" styleClass="music-icon">
+        <image>
+            <Image url="@Frames/music_on.png" />
+        </image>
+    </ImageView>
+
+</AnchorPane>

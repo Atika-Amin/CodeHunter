@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Quiz4Controller">
+
+    <!-- Define ToggleGroups -->
+    <fx:define>
+        <ToggleGroup fx:id="q1Group"/>
+        <ToggleGroup fx:id="q2Group"/>
+        <ToggleGroup fx:id="q3Group"/>
+    </fx:define>
+
+    <!-- Full Page Background -->
+    <ImageView fitHeight="640.0" fitWidth="960.0" styleClass="background-image">
+        <image>
+            <Image url="@Frames/bg_image.JPG"/>
+        </image>
+    </ImageView>
+
+    <!-- Wooden Frame -->
+    <ImageView fitHeight="550.0" fitWidth="515.0" layoutX="200.0">
+        <image>
+            <Image url="@Frames/setting_BG.png"/>
+        </image>
+    </ImageView>
+
+    <!-- Scrollable Quiz Content -->
+    <ScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutX="278.0" layoutY="88.0" prefHeight="381.0" prefWidth="368.0" styleClass="slide-scroll" vbarPolicy="AS_NEEDED">
+        <content>
+            <VBox fx:id="quizBox" spacing="20.0" styleClass="slide-text" prefWidth="340.0" maxWidth="340.0">
+
+                <!-- Section: Question 1 -->
+                <VBox spacing="10.0" styleClass="quiz-section">
+                    <Label wrapText="true" maxWidth="340.0"
+                           text="1. What does a pointer store?" />
+                    <RadioButton text="A value" toggleGroup="$q1Group"/>
+                    <RadioButton text="An operator" toggleGroup="$q1Group"/>
+                    <RadioButton text="A memory address" toggleGroup="$q1Group" fx:id="q1Correct"/>
+                    <RadioButton text="A keyword" toggleGroup="$q1Group"/>
+                </VBox>
+
+                <!-- Section: Question 2 -->
+                <VBox spacing="10.0" styleClass="quiz-section">
+                    <Label wrapText="true" maxWidth="340.0"
+                           text="2. What will this print? int a = 10; int *p = &amp;a; printf(&quot;%d&quot;, *p);" />
+                    <RadioButton text="10" toggleGroup="$q2Group" fx:id="q2Correct"/>
+                    <RadioButton text="Address of a" toggleGroup="$q2Group"/>
+                    <RadioButton text="*p" toggleGroup="$q2Group"/>
+                    <RadioButton text="Nothing" toggleGroup="$q2Group"/>
+                </VBox>
+
+
+                <!-- Section: Question 3 -->
+                <VBox spacing="10.0" styleClass="quiz-section">
+                    <Label wrapText="true" maxWidth="340.0"
+                           text="3. Which function is used to free allocated memory in C?" />
+                    <RadioButton text="malloc()" toggleGroup="$q3Group"/>
+                    <RadioButton text="calloc()" toggleGroup="$q3Group"/>
+                    <RadioButton text="free()" toggleGroup="$q3Group" fx:id="q3Correct"/>
+                    <RadioButton text="delete()" toggleGroup="$q3Group"/>
+                </VBox>
+
+                <!-- Section: Question 4 -->
+                <VBox spacing="10.0" styleClass="quiz-section">
+                    <Label wrapText="true" maxWidth="340.0"
+                           text="4. Write the code to declare an integer pointer and point it to variable x." />
+                    <TextArea fx:id="q4Answer" prefRowCount="3" wrapText="true"/>
+                </VBox>
+
+                <!-- Section: Question 5 -->
+                <VBox spacing="10.0" styleClass="quiz-section">
+                    <Label wrapText="true" maxWidth="340.0"
+                           text="5. What keyword is used in C to deallocate dynamically allocated memory?" />
+                    <TextField fx:id="q5Answer" />
+                </VBox>
+
+
+            </VBox>
+        </content>
+    </ScrollPane>
+
+    <!-- Submit Button -->
+    <Button fx:id="submitButton" layoutX="602.0" layoutY="535.0" onAction="#submitQuiz" styleClass="quiz-button" text="Submit"/>
+
+    <!-- Home Icon -->
+    <ImageView fx:id="homeIcon" fitHeight="55.0" fitWidth="55.0" layoutX="850.0" layoutY="560.0" onMouseClicked="#goBackToHome" pickOnBounds="true" preserveRatio="true" styleClass="home-icon">
+        <image>
+            <Image url="@Frames/Back_Home.png"/>
+        </image>
+    </ImageView>
+
+</AnchorPane>

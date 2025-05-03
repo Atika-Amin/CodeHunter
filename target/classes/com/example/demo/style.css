@@ -1,0 +1,242 @@
+
+/* Frame Styling */
+.login-frame {
+    -fx-background-color: linear-gradient(to bottom, #8B5A2B, #6B4226);
+    -fx-background-radius: 30;
+    -fx-border-color: #5A3D1B;
+    -fx-border-width: 5;
+    -fx-border-radius: 30;
+    -fx-padding: 20;
+}
+/* Background Blur */
+.background-image {
+    -fx-effect: gaussian-blur(10);
+    -fx-opacity: 0.7; /* Adjust for low light */
+}
+.reading-background-image {
+    -fx-effect: gaussian-blur(7);
+    -fx-opacity: 0.9; /* Adjust for low light */
+}
+
+.level-icon:hover {
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+/* Title Styling */
+.title-label {
+    -fx-font-family: "Arial Black";
+    -fx-font-size: 28px;
+    -fx-text-fill: #FFD700;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, black, 5, 0.5, 0, 2);
+}
+.label0 {
+    -fx-font-family: "Arial Black";
+    -fx-font-size: 20px;
+    -fx-text-fill: #FFD700;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, black, 5, 0.5, 0, 2);
+}
+/* Input Fields */
+.input-field {
+    -fx-font-size: 18px;
+    -fx-pref-width: 250px;
+    -fx-background-color: rgba(255, 255, 255, 0.8);
+    -fx-border-radius: 10;
+    -fx-padding: 5px;
+}
+
+/* Wooden Buttons */
+.wooden-button {
+    -fx-font-family: "Arial Black";
+    -fx-font-size: 20px;
+    -fx-text-fill: white;
+    -fx-background-color: linear-gradient(to bottom, #A0522D, #8B4513); /* Wooden brown */
+    -fx-background-radius: 10;
+    -fx-border-color: #5A3D1B;
+    -fx-border-width: 3;
+    -fx-padding: 10px;
+    -fx-effect: dropshadow(gaussian, black, 3, 0.5, 0, 1);
+}
+
+/* Hover Effect */
+.wooden-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #CD853F, #A0522D); /* Lighter brown */
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-cursor: hand;
+}
+
+/* Click Effect */
+.wooden-button:pressed {
+    -fx-background-color: linear-gradient(to bottom, #8B4513, #5A2E18);
+    -fx-scale-x: 0.95;
+    -fx-scale-y: 0.95;
+}
+.logout-icon {
+    -fx-cursor: hand;
+    -fx-opacity: 0.8;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0.5, 0, 1);
+    -fx-transition: 0.3s ease-in-out;
+}
+
+.logout-icon:hover {
+    -fx-opacity: 1.0;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+.info-headline {
+    -fx-font-size: 14px;
+    -fx-text-fill: #FFD700;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, black, 5, 0.5, 0, 2);
+}
+.music-icon {
+    -fx-cursor: hand;
+    -fx-opacity: 0.8;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0.5, 0, 1);
+    -fx-transition: 0.3s ease-in-out;
+}
+
+.music-icon:hover {
+    -fx-opacity: 1.0;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+.home-icon {
+    -fx-cursor: hand;
+    -fx-opacity: 0.8;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0.5, 0, 1);
+    -fx-transition: 0.3s ease-in-out;
+}
+
+.home-icon:hover {
+    -fx-opacity: 1.0;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+/* Slider Styling */
+.slider {
+    -fx-pref-width: 200px;
+    -fx-padding: 0 10px;
+}
+
+.slider .track {
+    -fx-background-color: linear-gradient(to right, #DAA520, #8B4513);
+    -fx-background-insets: 0;
+    -fx-background-radius: 5;
+    -fx-pref-height: 6px;
+}
+
+.slider .thumb {
+    -fx-background-color: #FFD700;
+    -fx-background-radius: 50%;
+    -fx-effect: dropshadow(gaussian, black, 3, 0.5, 0, 1);
+}
+
+.value-label {
+    -fx-font-size: 16px;
+    -fx-text-fill: #FFFACD;
+    -fx-font-weight: bold;
+}
+
+/* Setting Labels */
+.setting-label {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFE4B5;
+    -fx-effect: dropshadow(gaussian, black, 3, 0.3, 0, 1);
+}
+
+/* Info Headline Styling */
+.info-headline {
+    -fx-font-size: 14px;
+    -fx-text-fill: #FFD700;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, black, 5, 0.5, 0, 2);
+}
+
+/* Slider Value Text Styling */
+.slider-value-label {
+    -fx-font-size: 16px;
+    -fx-text-fill: #FFFACD;
+    -fx-font-weight: bold;
+}
+
+.setting-icon {
+    -fx-cursor: hand;
+    -fx-opacity: 0.8;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0.5, 0, 1);
+    -fx-transition: 0.3s ease-in-out;
+}
+
+.setting-icon:hover {
+    -fx-opacity: 1.0;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+.title-underline {
+    -fx-stroke: linear-gradient(to right, #A0522D, #8B4513, #A0522D); /* Wooden look */
+    -fx-stroke-width: 3;
+    -fx-opacity: 0.8;
+    -fx-effect: dropshadow(gaussian, #3e2615, 3, 0.6, 0, 1);
+}
+.image-icon {
+    -fx-cursor: hand;
+    -fx-opacity: 0.9;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0.5, 0, 1);
+}
+
+.image-icon:hover {
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-opacity: 1.0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 6, 0.6, 0, 2);
+}
+/* Apply to the slide text area */
+/* Slide background */
+.slide-scroll {
+    -fx-background-color: transparent;
+    -fx-padding: 10px;
+}
+
+/* Slide text styling */
+.slide-text {
+    -fx-font-size: 16px;
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+    -fx-text-fill: #4e2e0d; /* dark wood-like text color */
+    -fx-line-spacing: 6px;
+    -fx-background-color: #DEB887; /* wooden background color */
+    -fx-padding: 15px;
+    -fx-border-radius: 10px;
+
+    -fx-border-color: #a9744f; /* darker wood border */
+    -fx-border-width: 1px;
+}
+.quiz-button {
+    -fx-font-family: "Arial Black";
+        -fx-font-size: 16px;
+        -fx-text-fill: white;
+        -fx-background-color: linear-gradient(to bottom, #A0522D, #8B4513); /* Wooden brown */
+        -fx-background-radius: 10;
+        -fx-border-color: #5A3D1B;
+        -fx-border-width: 3;
+        -fx-padding: 10px;
+        -fx-effect: dropshadow(gaussian, black, 3, 0.5, 0, 1);
+}
+
+.quiz-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #CD853F, #A0522D); /* Lighter brown */
+        -fx-scale-x: 1.05;
+        -fx-scale-y: 1.05;
+        -fx-cursor: hand;
+}
+.quiz-section {
+    -fx-padding: 15;
+    -fx-background-color: #DEB887
+    -fx-background-radius: 10;
+    -fx-border-color: #a9744f;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+}
+
