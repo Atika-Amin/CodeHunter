@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Quiz3Controller">
+
+    <fx:define>
+        <ToggleGroup fx:id="group1"/>
+        <ToggleGroup fx:id="group2"/>
+        <ToggleGroup fx:id="group3"/>
+    </fx:define>
+
+    <ImageView fitHeight="640.0" fitWidth="960.0" styleClass="background-image">
+        <image>
+            <Image url="@Frames/bg_image.JPG"/>
+        </image>
+    </ImageView>
+
+    <ImageView fitHeight="550.0" fitWidth="515.0" layoutX="200.0">
+        <image>
+            <Image url="@Frames/setting_BG.png"/>
+        </image>
+    </ImageView>
+
+    <ScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutX="278.0" layoutY="88.0" prefHeight="381.0" prefWidth="368.0" styleClass="slide-scroll" vbarPolicy="AS_NEEDED">
+        <content>
+            <VBox fx:id="quizBox" spacing="20.0" styleClass="slide-text" prefWidth="340.0" maxWidth="340.0">
+
+                <!-- Q1 -->
+                <VBox spacing="10.0" styleClass="quiz-section">
+                    <Label wrapText="true" maxWidth="340.0"
+                           text="1. What is the correct syntax to declare an array of 5 integers in C?" />
+                    <RadioButton text="int arr[5];" toggleGroup="$group1"/>
+                    <RadioButton text="int[5] arr;" toggleGroup="$group1"/>
+                    <RadioButton text="arr int[5];" toggleGroup="$group1"/>
+                </VBox>
+
+                <!-- Q2 -->
+                <VBox spacing="10.0" styleClass="quiz-section">
+                    <Label wrapText="true" maxWidth="340.0"
+                           text="2. How are strings represented in C?" />
+                    <RadioButton text="As arrays of characters ending with '\\0'" toggleGroup="$group2"/>
+                    <RadioButton text="As integers" toggleGroup="$group2"/>
+                    <RadioButton text="As float arrays" toggleGroup="$group2"/>
+                </VBox>
+
+                <!-- Q3 -->
+                <VBox spacing="10.0" styleClass="quiz-section">
+                    <Label wrapText="true" maxWidth="340.0"
+                           text="3. Which of the following is a correct function declaration in C?" />
+                    <RadioButton text="int add(int a, int b);" toggleGroup="$group3"/>
+                    <RadioButton text="add int(a, b);" toggleGroup="$group3"/>
+                    <RadioButton text="function add(int, int);" toggleGroup="$group3"/>
+                </VBox>
+
+                <!-- Q4 -->
+                <VBox spacing="10.0" styleClass="quiz-section">
+                    <Label wrapText="true" maxWidth="340.0"
+                           text="4. Write a function in C that returns the sum of two integers." />
+                    <TextArea fx:id="answer4" prefRowCount="3" wrapText="true"/>
+                </VBox>
+
+                <!-- Q5 -->
+                <VBox spacing="10.0" styleClass="quiz-section">
+                    <Label wrapText="true" maxWidth="340.0"
+                           text="5. Write a line of C code to print the first character of a string `name`." />
+                    <TextArea fx:id="answer5" prefRowCount="3" wrapText="true"/>
+                </VBox>
+
+            </VBox>
+        </content>
+    </ScrollPane>
+
+    <Button fx:id="submitQuizButton" layoutX="602.0" layoutY="535.0" onAction="#submitQuiz" styleClass="quiz-button" text="Submit"/>
+
+    <ImageView fx:id="homeIcon" fitHeight="55.0" fitWidth="55.0" layoutX="850.0" layoutY="560.0" onMouseClicked="#goBackToHome" pickOnBounds="true" preserveRatio="true" styleClass="home-icon">
+        <image>
+            <Image url="@Frames/Back_Home.png"/>
+        </image>
+    </ImageView>
+
+</AnchorPane>

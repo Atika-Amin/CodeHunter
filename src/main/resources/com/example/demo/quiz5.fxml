@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.Quiz5Controller">
+
+    <!-- Define ToggleGroups -->
+    <fx:define>
+        <ToggleGroup fx:id="group1"/>
+        <ToggleGroup fx:id="group2"/>
+        <ToggleGroup fx:id="group4"/>
+    </fx:define>
+
+    <!-- Full Page Background -->
+    <ImageView fitHeight="640.0" fitWidth="960.0" styleClass="background-image">
+        <image>
+            <Image url="@Frames/bg_image.JPG"/>
+        </image>
+    </ImageView>
+
+    <!-- Wooden Frame -->
+    <ImageView fitHeight="550.0" fitWidth="515.0" layoutX="200.0">
+        <image>
+            <Image url="@Frames/setting_BG.png"/>
+        </image>
+    </ImageView>
+
+    <!-- Scrollable Quiz Content -->
+    <ScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutX="278.0" layoutY="88.0" prefHeight="381.0" prefWidth="368.0" styleClass="slide-scroll" vbarPolicy="AS_NEEDED">
+        <content>
+            <VBox fx:id="quizBox" spacing="20.0" styleClass="slide-text" prefWidth="340.0" maxWidth="340.0">
+
+                <!-- Section: Question 1 -->
+                <VBox spacing="10.0" styleClass="quiz-section">
+                    <Label wrapText="true" maxWidth="340.0"
+                           text="1. What is a structure in C?" />
+                    <RadioButton text="A function" toggleGroup="$group1"/>
+                    <RadioButton text="A data type that groups variables" toggleGroup="$group1" fx:id="q1Correct"/>
+                    <RadioButton text="A pointer" toggleGroup="$group1"/>
+                    <RadioButton text="A library" toggleGroup="$group1"/>
+                </VBox>
+
+                <!-- Section: Question 2 -->
+                <VBox spacing="10.0" styleClass="quiz-section">
+                    <Label wrapText="true" maxWidth="340.0"
+                           text="2. Which function is used to open a file for reading in C?" />
+                    <RadioButton text="open()" toggleGroup="$group2"/>
+                    <RadioButton text="fopen()" toggleGroup="$group2" fx:id="q2Correct"/>
+                    <RadioButton text="read()" toggleGroup="$group2"/>
+                    <RadioButton text="file_open()" toggleGroup="$group2"/>
+                </VBox>
+
+                <!-- Section: Question 3 -->
+                <VBox spacing="10.0" styleClass="quiz-section">
+                    <Label wrapText="true" maxWidth="340.0"
+                           text="3. How do you define a structure in C?" />
+                    <TextArea fx:id="q3Answer" prefRowCount="3" wrapText="true"/>
+                </VBox>
+
+                <!-- Section: Question 4 -->
+                <VBox spacing="10.0" styleClass="quiz-section">
+                    <Label wrapText="true" maxWidth="340.0"
+                           text="4. What will the following code do?\n FILE *file = fopen(&quot;data.txt&quot;, &quot;w&quot;);&#10; fprintf(file, &quot;Hello, File!&quot;);&#10; fclose(file);" />
+                    <RadioButton text="Write data to a file" toggleGroup="$group4" fx:id="q4Correct"/>
+                    <RadioButton text="Read data from a file" toggleGroup="$group4"/>
+                    <RadioButton text="Create a file without writing" toggleGroup="$group4"/>
+                    <RadioButton text="Do nothing" toggleGroup="$group4"/>
+                </VBox>
+
+                <!-- Section: Question 5 -->
+                <VBox spacing="10.0" styleClass="quiz-section">
+                    <Label wrapText="true" maxWidth="340.0"
+                           text="5. How do you define a file pointer to read from a file?" />
+                    <TextArea fx:id="q5Answer" prefRowCount="3" wrapText="true"/>
+                </VBox>
+
+            </VBox>
+        </content>
+    </ScrollPane>
+
+    <!-- Submit Button -->
+    <Button fx:id="submitQuizButton" layoutX="602.0" layoutY="535.0" onAction="#submitQuiz" styleClass="quiz-button" text="Submit"/>
+
+    <!-- Home Icon -->
+    <ImageView fx:id="homeIcon" fitHeight="55.0" fitWidth="55.0" layoutX="850.0" layoutY="560.0" onMouseClicked="#goBackToHome" pickOnBounds="true" preserveRatio="true" styleClass="home-icon">
+        <image>
+            <Image url="@Frames/Back_Home.png"/>
+        </image>
+    </ImageView>
+
+</AnchorPane>

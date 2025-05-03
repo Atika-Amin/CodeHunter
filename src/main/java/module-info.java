@@ -1,10 +1,13 @@
-module com.example.tilegamefxglproject {
+module com.example.demo {
     requires javafx.controls;
     requires javafx.fxml;
-
+    requires java.prefs;
     requires com.almasb.fxgl.all;
-    requires com.fasterxml.jackson.databind;
+    requires java.sql;
+    requires jbcrypt;
+    requires javafx.media;
+    requires java.desktop;
 
-    opens com.example.tilegamefxglproject to javafx.fxml;
-    exports com.example.tilegamefxglproject;
+    opens com.example.demo to javafx.fxml;
+    exports com.example.demo;
 }
