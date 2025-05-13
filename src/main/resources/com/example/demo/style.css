@@ -240,3 +240,15 @@
     -fx-border-width: 1;
 }
 
+.wooden-code-area {
+    -fx-background-color: #deb887; /* light wood tone (BurlyWood) */
+    -fx-border-color: #8b5a2b;     /* darker brown border */
+    -fx-border-width: 3px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 10;
+}
+
+.wooden-code-area .viewport {
+    -fx-background-color: transparent;
+}
