@@ -32,31 +32,31 @@
         <!-- Level Icons -->
         <ImageView fx:id="level5Icon" fitHeight="55.0" fitWidth="58.0" layoutX="360.0" layoutY="439.0" onMouseClicked="#openLevel5" opacity="0.5" styleClass="level-icon">
             <image>
-                <Image url="@assets/RM_Level/level_5.png" />
+                <Image url="@asset/RM_Level/level_5.png" />
             </image>
         </ImageView>
 
         <ImageView fx:id="level4Icon" fitHeight="55.0" fitWidth="58.0" layoutX="268.0" layoutY="374.0" onMouseClicked="#openLevel4" opacity="0.5" styleClass="level-icon">
             <image>
-                <Image url="@assets/RM_Level/level_4.png" />
+                <Image url="@asset/RM_Level/level_4.png" />
             </image>
         </ImageView>
 
         <ImageView fx:id="level3Icon" fitHeight="55.0" fitWidth="58.0" layoutX="389.0" layoutY="281.0" onMouseClicked="#openLevel3" opacity="0.5" styleClass="level-icon">
             <image>
-                <Image url="@assets/RM_Level/level_3.png" />
+                <Image url="@asset/RM_Level/level_3.png" />
             </image>
         </ImageView>
 
         <ImageView fx:id="level2Icon" fitHeight="55.0" fitWidth="58.0" layoutX="565.0" layoutY="216.0" onMouseClicked="#openLevel2" opacity="0.5" styleClass="level-icon">
             <image>
-                <Image url="@assets/RM_Level/level_2.png" />
+                <Image url="@asset/RM_Level/level_2.png" />
             </image>
         </ImageView>
 
         <ImageView fx:id="level1Icon" fitHeight="55.0" fitWidth="58.0" layoutX="517.0" layoutY="122.0" onMouseClicked="#openLevel1" styleClass="level-icon">
             <image>
-                <Image url="@assets/RM_Level/level_1.png" />
+                <Image url="@asset/RM_Level/level_1.png" />
             </image>
         </ImageView>
 
