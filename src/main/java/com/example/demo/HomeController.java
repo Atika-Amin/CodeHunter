@@ -20,8 +20,6 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class HomeController {
 
@@ -95,8 +93,8 @@ public class HomeController {
 
     private void updateStatusImages(int level, int points) {
         try {
-            String levelImagePath = "/com/example/demo/assets/KnG_Level/level_" + level + ".png";
-            String pointsImagePath = "/com/example/demo/assets/points/pointImage.png";
+            String levelImagePath = "/com/example/demo/asset/KnG_Level/level_" + level + ".png";
+            String pointsImagePath = "/com/example/demo/asset/points/pointImage.png";
 
             knowledgeLevelImage.setImage(new Image(getClass().getResourceAsStream(levelImagePath)));
             pointsImage.setImage(new Image(getClass().getResourceAsStream(pointsImagePath)));
@@ -172,12 +170,29 @@ public class HomeController {
     private void openGamingMode() {
         SoundUtil.playClick();
         System.out.println("Gaming Mode opened.");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("gaming_mode.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     private void openTypingMode() {
         SoundUtil.playClick();
-        System.out.println("Settings opened.");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("typing_mode.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
