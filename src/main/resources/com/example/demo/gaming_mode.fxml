@@ -1,101 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.GamingModeController">
+<AnchorPane fx:id="homePane" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.GamingModeController">
 
-    <!-- Full Page Background -->
+    <!-- Background Image -->
     <ImageView fitHeight="640" fitWidth="960" styleClass="background-image">
         <image>
             <Image url="@Frames/bg_image.JPG" />
         </image>
     </ImageView>
-    <Group fx:id="readingGroup" layoutX="15.0">
-        <!-- Wooden Frame -->
-        <ImageView fitHeight="583.0" fitWidth="560.0" layoutX="185.0" layoutY="14.0">
-            <image>
-                <Image url="@Frames/setting_BG.png" />
-            </image>
-        </ImageView>
 
-        <!-- Background for Reading Mode (inside the frame) -->
-        <ImageView fitHeight="486.0" fitWidth="473.0" layoutX="229.0" layoutY="65.0" styleClass="reading-background-image">
-            <image>
-                <Image url="@Frames/GM_image.jpg" />
-            </image>
-        </ImageView>
-
-        <!-- Level Icons -->
-        <ImageView fx:id="level5Icon" fitHeight="55.0" fitWidth="58.0" layoutX="408.0" layoutY="177.0" onMouseClicked="#openLevel5" opacity="0.5" styleClass="level-icon">
-            <image>
-                <Image url="@asset/RM_Level/level_5.png" />
-            </image>
-        </ImageView>
-
-        <ImageView fx:id="level4Icon" fitHeight="55.0" fitWidth="58.0" layoutX="629.0" layoutY="281.0" onMouseClicked="#openLevel4" opacity="0.5" styleClass="level-icon">
-            <image>
-                <Image url="@asset/RM_Level/level_4.png" />
-            </image>
-        </ImageView>
-
-        <ImageView fx:id="level3Icon" fitHeight="55.0" fitWidth="58.0" layoutX="436.0" layoutY="309.0" onMouseClicked="#openLevel3" opacity="0.5" styleClass="level-icon">
-            <image>
-                <Image url="@asset/RM_Level/level_3.png" />
-            </image>
-        </ImageView>
-
-        <ImageView fx:id="level2Icon" fitHeight="55.0" fitWidth="58.0" layoutX="262.0" layoutY="309.0" onMouseClicked="#openLevel2" opacity="0.5" styleClass="level-icon">
-            <image>
-                <Image url="@asset/RM_Level/level_2.png" />
-            </image>
-        </ImageView>
-
-        <ImageView fx:id="level1Icon" fitHeight="55.0" fitWidth="58.0" layoutX="389.0" layoutY="392.0" onMouseClicked="#openLevel1" styleClass="level-icon">
-            <image>
-                <Image url="@asset/RM_Level/level_1.png" />
-            </image>
-        </ImageView>
-
-        <!-- Lock Icons (aligned on top of level icons) -->
-        <!-- Lock Icons (aligned on top of level icons) -->
-        <ImageView fx:id="lock5" fitHeight="55.0" fitWidth="58.0" layoutX="408.0" layoutY="177.0" visible="false">
-            <image>
-                <Image url="@Frames/lock_icon.png" />
-            </image>
-        </ImageView>
-
-        <ImageView fx:id="lock4" fitHeight="55.0" fitWidth="58.0" layoutX="629.0" layoutY="281.0" visible="false">
-            <image>
-                <Image url="@Frames/lock_icon.png" />
-            </image>
-        </ImageView>
-
-        <ImageView fx:id="lock3" fitHeight="55.0" fitWidth="58.0" layoutX="436.0" layoutY="309.0" visible="false">
-            <image>
-                <Image url="@Frames/lock_icon.png" />
-            </image>
-        </ImageView>
-
-        <ImageView fx:id="lock2" fitHeight="55.0" fitWidth="58.0" layoutX="262.0" layoutY="309.0" visible="false">
-            <image>
-                <Image url="@Frames/lock_icon.png" />
-            </image>
-        </ImageView>
-
-        <ImageView fx:id="lock1" fitHeight="55.0" fitWidth="58.0" layoutX="389.0" layoutY="392.0" visible="false">
-            <image>
-                <Image url="@Frames/lock_icon.png" />
-            </image>
-        </ImageView>
+    <!-- Wooden Frame -->
+    <ImageView fitHeight="461.0" fitWidth="674.0" layoutX="144.0" layoutY="70.0">
+        <image>
+            <Image url="@Frames/wood_frame.png" />
+        </image>
+    </ImageView>
 
 
-        <Label layoutX="488.0" layoutY="478.0" prefHeight="52.0" prefWidth="77.0" styleClass="label0" text="START" />
+    <!-- Title -->
+    <HBox fx:id="titleBox" layoutX="362.0" layoutY="98.0" prefHeight="42.0" prefWidth="236.0" spacing="20">
+        <children>
+            <Label prefHeight="64.0" prefWidth="285.0" styleClass="title-label" text="GAMING MODE" />
+        </children>
+    </HBox>
 
-    </Group>
+    <!-- Buttons -->
+    <VBox fx:id="buttonBox" alignment="CENTER" layoutX="311.0" layoutY="221.0" opacity="0.0" prefHeight="261.0" prefWidth="339.0" spacing="20">
+        <Button fx:id="readingModeButton" onAction="#openSinglePlayerMode" prefHeight="55.0" prefWidth="236.0" styleClass="wooden-button" text="SINGLE PLAYER" />
+        <Button fx:id="gamingModeButton" onAction="#openMultiPlayerMode" prefHeight="55.0" prefWidth="235.0" styleClass="wooden-button" text="MULTIPLAYER" />
+        <Button fx:id="TypingModeButton" onAction="#openExtraFunMode" prefHeight="55.0" prefWidth="236.0" styleClass="wooden-button" text="EXTRA FUN" />
+    </VBox>
+
+    <!-- Headline for Knowledge Level -->
+    <Label layoutX="210.0" layoutY="178.0" styleClass="info-headline" text="Knowledge Level" />
+
+    <!-- Knowledge Level Image -->
+    <ImageView fx:id="knowledgeLevelImage" fitHeight="36.0" fitWidth="158.0" layoutX="197.0" layoutY="196.0" opacity="0.0" />
+
+    <!-- Headline for Points -->
+    <Label layoutX="700.0" layoutY="178.0" styleClass="info-headline" text="Points" />
+
+    <!-- Points Image -->
+    <StackPane fx:id="pointsPane" layoutX="619.0" layoutY="196.0" prefHeight="36.0" prefWidth="140.0">
+        <ImageView fx:id="pointsImage" fitHeight="36.0" fitWidth="140.0" opacity="0.0" />
+        <Label fx:id="pointsValueLabel" style="-fx-font-size: 18px; -fx-font-family: 'Arial Black'; -fx-text-fill: #FFD700; -fx-font-weight: bold;" text="00" StackPane.alignment="CENTER" />
+    </StackPane>
 
     <!-- Music Icon -->
     <ImageView fx:id="musicIcon" fitHeight="55.0" fitWidth="55.0" layoutX="69.0" layoutY="561.0" onMouseClicked="#toggleMusic" pickOnBounds="true" preserveRatio="true" styleClass="music-icon">
@@ -103,7 +61,11 @@
             <Image url="@Frames/music_on.png" />
         </image>
     </ImageView>
-
+    <ImageView fx:id="settingsIcon" fitHeight="54.0" fitWidth="55.0" layoutX="857.0" layoutY="26.0" onMouseClicked="#openSettings" pickOnBounds="true" preserveRatio="true" styleClass="setting-icon">
+        <image>
+            <Image url="@Frames/settings.png" />
+        </image>
+    </ImageView>
     <!-- Home Icon -->
     <ImageView fx:id="homeIcon" fitHeight="55.0" fitWidth="55.0" layoutX="850.0" layoutY="560.0" onMouseClicked="#goBack" pickOnBounds="true" preserveRatio="true" styleClass="home-icon">
         <image>
