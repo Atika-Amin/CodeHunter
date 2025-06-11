@@ -1,53 +1,108 @@
 package com.example.demo;
 
-import javafx.animation.ScaleTransition;
+import javafx.animation.FadeTransition;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
-import javafx.scene.Group;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.control.Button;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import java.io.File;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 public class GamingModeController {
 
+    @FXML private HBox titleBox;
+    @FXML private VBox buttonBox;
+    @FXML private Button readingModeButton;
+    @FXML private Button gamingModeButton;
+    @FXML private Button TypingModeButton;
+
+    @FXML private ImageView knowledgeLevelImage;
+    @FXML private ImageView pointsImage;
+    @FXML private ImageView logoutIcon;
+    @FXML private ImageView settingsIcon;
+
+    @FXML private Label knowledgeLabel;
+    @FXML private Label pointsLabel;
+    @FXML private StackPane pointsPane;
+    @FXML private Label pointsValueLabel;
     @FXML private ImageView musicIcon, homeIcon;
-    @FXML private ImageView level1Icon, level2Icon, level3Icon, level4Icon, level5Icon;
-    @FXML private ImageView lock1, lock2, lock3, lock4, lock5;
+    @FXML private Slider volumeSlider;
+
+
     @FXML
-    private Group readingGroup;
-
-    private int userMaxLevel = 0; // Default to Level 1 if not found
-
-    public void initialize() {
-        // Apply zoom-in effect on the group containing the elements
-        applyZoomInAnimation(readingGroup);
+    private void initialize() {
+        // Animate title and buttons
+        applyFadeInAnimation(titleBox);
+        applyFadeAndSlideAnimation(buttonBox);
+        applyFadeInAnimation(knowledgeLevelImage);
+        applyFadeInAnimation(pointsImage);
+        applyFadeInAnimation(pointsImage);
+        applyFadeInAnimation(pointsPane);
+        // Update icon initially based on music state
         updateMusicIcon();
-        fetchUserMaxLevel();
-        lockLevelsBasedOnProgress();
-    }
-    private void applyZoomInAnimation(Group readingGroup) {
-        // Create a ScaleTransition for the group (wooden frame, title, and signup form)
-        ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(1.2), readingGroup);
-        scaleTransition.setFromX(0.8); // Start smaller (80% of the original size)
-        scaleTransition.setFromY(0.8); // Same for Y-axis
-        scaleTransition.setToX(1.0);   // End at 100% (original size)
-        scaleTransition.setToY(1.0);   // End at 100% (original size)
 
-        // Play the zoom-in transition
-        scaleTransition.play();
+        Font.loadFont(getClass().getResourceAsStream("/fonts/PressStart2P-Regular.ttf"), 14);
+        // Set initial images (you can fetch values dynamically later)
+
+        // Fetch user data dynamically
+        int userId = Session.getCurrentUserId();
+        int level = DatabaseConnection.getKnowledgeLevel(userId);
+        int points = DatabaseConnection.getPoints(userId);
+
+        // Update session
+        Session.setKnowledgeLevel(level);
+        Session.setPoints(points);
+
+        // Display on homepage
+        updateStatusImages(level, points);
+    }
+
+
+    private void applyFadeInAnimation(javafx.scene.Node node) {
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1.5), node);
+        fadeTransition.setFromValue(0.0);
+        fadeTransition.setToValue(1.0);
+        fadeTransition.play();
+    }
+
+    private void applyFadeAndSlideAnimation(javafx.scene.Node node) {
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1.5), node);
+        fadeTransition.setFromValue(0.0);
+        fadeTransition.setToValue(1.0);
+
+        TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(1.5), node);
+        translateTransition.setFromY(30);
+        translateTransition.setToY(0);
+
+        fadeTransition.play();
+        translateTransition.play();
+    }
+
+    private void updateStatusImages(int level, int points) {
+        try {
+            String levelImagePath = "/com/example/demo/asset/KnG_Level/level_" + level + ".png";
+            String pointsImagePath = "/com/example/demo/asset/points/pointImage.png";
+
+            knowledgeLevelImage.setImage(new Image(getClass().getResourceAsStream(levelImagePath)));
+            pointsImage.setImage(new Image(getClass().getResourceAsStream(pointsImagePath)));
+
+            pointsValueLabel.setText(String.valueOf(points));
+        } catch (Exception e) {
+            System.out.println("Error loading status images: " + e.getMessage());
+        }
     }
 
     @FXML
@@ -56,131 +111,75 @@ public class GamingModeController {
         MusicManager.toggleMusic();
         updateMusicIcon();
     }
+
     private void updateMusicIcon() {
         String iconPath = MusicManager.isMusicPlaying()
                 ? "/com/example/demo/Frames/music_on.png"
                 : "/com/example/demo/Frames/music_off.png";
         musicIcon.setImage(new Image(getClass().getResourceAsStream(iconPath)));
     }
-
-    private void fetchUserMaxLevel() {
-        try (Connection conn = DatabaseConnection.getConnection()) {
-            String sql = "SELECT knowledge_level FROM user_progress WHERE user_id = ?";
-            PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setInt(1, Session.getCurrentUserId());
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                userMaxLevel = rs.getInt("knowledge_level");
-            }
-        } catch (SQLException e) {
+    @FXML
+    private void openSettings(MouseEvent event) {
+        SoundUtil.playClick(); // Play sound (if you want)
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo/settings.fxml"));
+            Parent settingsRoot = loader.load();
+            Stage stage = (Stage) settingsIcon.getScene().getWindow(); // Get current window
+            Scene settingsScene = new Scene(settingsRoot);
+            stage.setScene(settingsScene);
+            stage.setTitle("Settings");
+            stage.show();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private void lockLevelsBasedOnProgress() {
-        if (userMaxLevel >= 1) {
-            level1Icon.setOpacity(1.0);
-            lock1.setVisible(false);
-        } else {
-            level1Icon.setOpacity(0.5);
-            lock1.setVisible(true);
-        }
-
-        if (userMaxLevel >= 2) {
-            level2Icon.setOpacity(1.0);
-            lock2.setVisible(false);
-        } else {
-            level2Icon.setOpacity(0.5);
-            lock2.setVisible(true);
-        }
-
-        if (userMaxLevel >= 3) {
-            level3Icon.setOpacity(1.0);
-            lock3.setVisible(false);
-        } else {
-            level3Icon.setOpacity(0.5);
-            lock3.setVisible(true);
-        }
-
-        if (userMaxLevel >= 4) {
-            level4Icon.setOpacity(1.0);
-            lock4.setVisible(false);
-        } else {
-            level4Icon.setOpacity(0.5);
-            lock4.setVisible(true);
-        }
-
-        if (userMaxLevel >= 5) {
-            level5Icon.setOpacity(1.0);
-            lock5.setVisible(false);
-        } else {
-            level5Icon.setOpacity(0.5);
-            lock5.setVisible(true);
-        }
-    }
-
-
-
     @FXML
-    private void openLevel1(MouseEvent event) {
-        level1Icon.setOpacity(1.0);  // Fully visible
-        lock1.setVisible(false);
-        if (userMaxLevel >= 1) openMapLevel(1);
-    }
-
-    @FXML
-    private void openLevel2(MouseEvent event) {
-        level2Icon.setOpacity(1.0);  // Fully visible
-        lock2.setVisible(false);
-        if (userMaxLevel >= 2) openMapLevel(2);
-    }
-
-    @FXML
-    private void openLevel3(MouseEvent event) {
-
-        level3Icon.setOpacity(1.0);  // Fully visible
-        lock3.setVisible(false);
-        if (userMaxLevel >= 3) openMapLevel(3);
-    }
-
-    @FXML
-    private void openLevel4(MouseEvent event) {
-        level4Icon.setOpacity(1.0);  // Fully visible
-        lock4.setVisible(false);
-        if (userMaxLevel >= 4) openMapLevel(4);
-    }
-
-    @FXML
-    private void openLevel5(MouseEvent event) {
-        level5Icon.setOpacity(1.0);  // Fully visible
-        lock5.setVisible(false);
-        if (userMaxLevel >= 5) openMapLevel(5);
-    }
-
-    private void openMapLevel(int level) {
+    private void openSinglePlayerMode() {
         SoundUtil.playClick();
-        Stage stage = (Stage) homeIcon.getScene().getWindow();
-
         try {
-            MusicManager.pauseMusic();
-            switch (level) {
-                case 1:
-                    new Map1Game(stage).start(); break;
-                case 2:
-                    new Map2Game(stage).start(); break;
-                case 3:
-                    new Map3Game(stage).start(); break;
-                case 4:
-                    new Map4Game(stage).start(); break;
-                case 5:
-                    new Map5Game(stage).start(); break;
-            }
-        } catch (Exception ex) {
-            ex.printStackTrace();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo/singlePlayer_mode.fxml")); // Correct FXML path
+            Parent readingRoot = loader.load();
+            Stage stage = (Stage) readingModeButton.getScene().getWindow();
+            Scene readingScene = new Scene(readingRoot);
+            stage.setScene(readingScene);
+            stage.setTitle("Reading Mode");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
 
+    @FXML
+    private void openMultiPlayerMode() {
+        SoundUtil.playClick();
+        System.out.println("MultiPlayer opened.");
+        /*try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("gaming_mode.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }*/
+    }
+
+    @FXML
+    private void openExtraFunMode() {
+        SoundUtil.playClick();
+        System.out.println("Extra Fun opened.");
+        /* try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("typing_mode.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } */
+    }
     @FXML
     private void goBack(MouseEvent event) {
         SoundUtil.playClick();
@@ -193,4 +192,5 @@ public class GamingModeController {
             e.printStackTrace();
         }
     }
+
 }

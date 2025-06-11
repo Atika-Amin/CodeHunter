@@ -34,9 +34,9 @@ public class DatabaseConnection {
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setInt(1, userId);
-            stmt.setInt(2, DEFAULT_LEVEL);     // max_level
-            stmt.setInt(3, 0);                  // knowledge_level
-            stmt.setInt(4, 0);                  // points
+            stmt.setInt(2, 0);     // max_level
+            stmt.setInt(3, 0);     // knowledge_level
+            stmt.setInt(4, 0);     // points
             stmt.executeUpdate();
             System.out.println("✅ New user progress created for userId: " + userId);
 
@@ -56,15 +56,11 @@ public class DatabaseConnection {
 
             if (rs.next()) {
                 return rs.getInt("max_level");
-            } else {
-                createUserProgress(userId);
-                return DEFAULT_LEVEL;
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
-            return DEFAULT_LEVEL;
         }
+        return 0;
     }
 
     // Update max level
@@ -126,6 +122,30 @@ public class DatabaseConnection {
             e.printStackTrace();
         }
         return 0;
+    }
+    public static void updatePoints(int userId, int newPoints) {
+        String checkQuery = "SELECT * FROM user_progress WHERE user_id = ?";
+        try (Connection conn = getConnection();
+             PreparedStatement checkStmt = conn.prepareStatement(checkQuery)) {
+
+            checkStmt.setInt(1, userId);
+            ResultSet rs = checkStmt.executeQuery();
+
+            if (!rs.next()) {
+                createUserProgress(userId);
+            }
+
+            String updateQuery = "UPDATE user_progress SET points = ? WHERE user_id = ?";
+            try (PreparedStatement updateStmt = conn.prepareStatement(updateQuery)) {
+                updateStmt.setInt(1, newPoints);
+                updateStmt.setInt(2, userId);
+                updateStmt.executeUpdate();
+                System.out.println("✅ Points updated to " + newPoints + " for user ID: " + userId);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public static int getPoints(int userId) {

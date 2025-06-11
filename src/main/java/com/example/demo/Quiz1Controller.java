@@ -85,7 +85,7 @@ public class Quiz1Controller {
 
         // Question 4
         String q4 = answer4.getText().trim().toLowerCase();
-        if (q4.contains("printf") && q4.contains("sum") && q4.contains("10")) {
+        if (q4.contains("printf") && q4.contains("sum") && q4.contains("a+b")) {
             score++;
         }
 

@@ -18,11 +18,9 @@ public class Main extends Application {
         MusicManager.startMusic();
         primaryStage.show();
         //System.out.println(Font.getFamilies());
-
     }
 
     public static void main(String[] args) {
         launch(args);
     }
 }
-

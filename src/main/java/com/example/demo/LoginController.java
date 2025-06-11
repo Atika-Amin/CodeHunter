@@ -80,7 +80,7 @@ public class LoginController {
                 return;
             }
 
-            String sql = "SELECT id, password FROM users WHERE username = ?";
+            String sql = "SELECT id, username, password FROM users WHERE username = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, username);
             ResultSet rs = stmt.executeQuery();
@@ -88,12 +88,13 @@ public class LoginController {
             if (rs.next()) {
                 String storedHashedPassword = rs.getString("password");
                 int userId = rs.getInt("id"); // ✅ Extract user_id
-
+                String name= rs.getString("username");
                 if (isValidHashedPassword(storedHashedPassword) && BCrypt.checkpw(password, storedHashedPassword)) {
                     //showAlert("✅ Success", "Login successful!");
                     // Redirect to home page
                     // ✅ Store user ID in session
                     Session.setCurrentUserId(userId);
+                    Session.setUsername(name);
                     switchToHome();
                 } else {
                     showAlert("❌ Error", "Invalid username or password!");
