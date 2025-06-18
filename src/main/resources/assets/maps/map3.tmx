@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="40" height="30" tilewidth="32" tileheight="32" infinite="0" nextlayerid="13" nextobjectid="119">
+ <tileset firstgid="1" source="../../../../../../../OneDrive/Desktop/map132.tsx"/>
+ <layer id="1" name="Tile Layer 1" width="40" height="30">
+  <data encoding="csv">
+114,114,114,114,114,114,114,114,114,114,114,114,114,114,118,118,118,118,118,118,118,118,118,118,118,114,114,114,114,114,114,118,118,118,118,122,122,122,122,122,
+114,114,114,114,114,114,114,114,114,114,114,114,114,114,118,118,118,118,118,118,118,118,118,118,118,114,114,114,114,114,114,118,118,118,118,122,122,122,122,122,
+114,114,114,114,114,114,114,114,114,114,114,114,114,114,118,118,118,118,118,118,118,118,118,118,118,114,114,114,114,114,114,118,118,118,118,122,122,122,122,122,
+118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,114,114,114,114,114,114,118,118,118,118,118,118,118,118,118,
+118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,74,118,118,118,118,118,118,114,114,114,114,114,114,118,129,118,118,118,118,118,118,118,
+597,597,597,597,118,118,118,118,118,118,118,118,129,118,118,118,118,69,70,71,69,70,71,118,118,114,114,114,114,114,114,118,129,129,129,129,129,129,129,129,
+599,599,599,129,129,887,887,118,118,240,319,261,262,320,240,118,118,125,126,127,125,126,127,118,118,118,118,118,118,118,118,118,129,129,129,129,129,129,129,131,
+761,762,763,129,129,887,887,118,118,240,261,705,707,262,240,118,118,125,126,126,126,126,127,118,118,118,118,118,118,118,118,69,405,1109,1110,1111,1112,1110,1111,1112,
+533,534,535,129,129,887,887,118,118,240,645,757,759,647,240,118,118,181,182,183,181,182,183,118,118,118,118,118,118,118,118,125,129,1165,1166,1167,1168,1166,1167,1168,
+118,118,118,129,129,887,887,118,118,240,944,944,944,944,240,118,118,118,118,118,118,118,118,118,118,126,126,126,126,118,118,125,405,1221,1222,1223,1224,1222,1223,1224,
+118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,126,126,126,126,118,118,181,182,182,182,182,182,182,182,182,
+118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,126,126,126,126,118,118,118,118,118,118,118,118,118,118,118,
+69,70,70,70,70,70,70,70,70,70,71,118,118,118,118,118,118,118,118,118,118,118,118,118,118,126,126,126,126,118,118,118,118,118,118,118,118,118,118,118,
+887,887,887,887,887,887,887,887,887,887,887,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,464,464,464,464,464,464,464,464,
+129,129,129,129,129,129,129,129,129,129,887,69,70,70,70,70,71,118,118,118,69,70,70,70,70,70,71,118,118,118,118,118,464,464,464,464,464,464,464,464,
+114,114,114,114,114,114,114,114,114,74,887,887,887,887,887,887,70,118,118,118,126,887,887,887,887,887,887,69,70,70,71,118,464,464,464,464,464,464,464,464,
+114,114,118,118,118,118,118,118,118,118,74,129,74,74,74,74,74,118,118,118,129,242,242,242,242,242,887,887,887,887,887,118,464,464,464,464,464,464,464,464,
+114,114,118,118,118,118,114,114,114,118,129,129,74,74,74,74,74,118,118,118,130,130,130,242,242,242,242,242,242,242,887,69,70,70,71,464,464,464,464,464,
+114,114,118,118,118,114,114,114,74,118,118,118,118,118,118,118,118,1140,1140,1140,118,118,118,118,118,118,114,74,74,74,887,887,887,887,887,464,464,464,464,464,
+114,114,118,118,118,114,114,114,114,338,338,338,338,338,338,338,338,1084,1084,1084,74,74,74,74,118,118,114,114,114,114,74,74,74,74,887,69,70,70,70,70,
+129,74,74,74,74,74,342,343,114,114,114,114,114,114,114,114,114,1140,1140,1140,74,74,74,74,118,118,114,114,114,114,114,74,74,130,887,887,887,887,887,887,
+129,74,74,74,74,129,74,74,620,114,114,114,114,114,341,342,343,83,83,84,617,618,619,74,118,118,118,118,118,118,114,114,114,114,74,74,74,74,74,131,
+129,74,74,74,74,74,74,114,676,620,114,114,114,114,285,286,287,81,81,82,673,674,675,74,118,118,118,118,118,118,114,114,114,114,114,74,74,74,74,74,
+338,338,118,118,118,338,338,338,732,676,617,1065,1066,1067,285,286,287,81,82,82,673,674,675,74,74,74,74,114,118,118,118,118,118,118,114,114,114,114,114,114,
+338,338,118,118,118,338,338,338,338,732,673,1121,1122,1123,285,286,287,81,81,82,673,674,675,74,74,74,74,114,114,118,118,118,118,118,118,118,118,118,118,114,
+118,118,118,118,118,118,118,338,338,114,729,1177,1178,1179,285,286,287,139,139,140,729,730,731,74,74,130,130,130,130,74,114,118,118,118,118,118,118,118,118,114,
+118,118,118,118,118,118,118,338,338,114,114,114,114,114,114,114,118,118,118,118,118,74,130,130,74,74,74,74,74,74,74,74,118,118,118,114,114,114,114,114,
+118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,118,130,130,130,130,130,130,130,130,130,74,74,130,130,130,74,130,130,118,131,
+118,118,118,118,118,118,118,338,338,114,114,114,114,114,114,114,114,114,114,114,114,130,130,130,130,130,130,130,130,130,74,130,130,130,130,130,130,130,130,131,
+118,118,118,118,118,118,118,338,338,114,114,114,114,114,114,114,114,114,114,114,114,130,130,130,130,130,130,130,130,74,74,130,130,130,130,130,130,130,130,187
+</data>
+ </layer>
+ <layer id="2" name="Tile Layer 2" width="40" height="30">
+  <data encoding="csv">
+719,0,0,0,0,0,0,0,0,0,0,0,0,717,0,0,0,0,0,0,0,0,0,0,0,881,0,0,0,0,938,0,0,0,678,621,0,0,0,0,
+719,0,0,0,0,0,0,0,0,0,0,0,0,717,0,0,0,0,0,0,0,0,0,0,0,881,0,0,0,0,938,0,0,0,678,621,0,0,0,0,
+941,662,662,662,662,662,662,662,662,662,662,662,662,942,0,0,0,0,0,0,0,0,0,0,0,881,0,0,0,0,938,0,206,0,678,679,1269,1269,1269,1269,
+0,0,0,0,0,0,0,118,118,0,0,0,0,0,0,0,0,0,0,263,264,0,0,0,0,881,0,0,0,0,938,0,91,0,0,0,0,0,0,0,
+0,0,0,206,0,0,0,118,118,0,0,207,208,0,0,0,0,0,263,319,320,264,0,0,0,881,0,0,0,0,938,0,426,0,0,0,0,0,0,0,
+0,0,0,205,208,118,118,118,118,0,207,319,320,208,0,0,0,0,319,375,376,320,0,0,0,939,937,0,0,937,940,0,428,597,597,597,597,597,597,597,
+0,0,0,928,597,93,886,0,0,885,0,0,0,0,886,0,0,0,375,817,875,376,0,0,0,0,0,0,0,0,0,0,425,597,597,597,597,597,597,597,
+0,438,0,424,599,149,717,0,0,719,0,0,0,0,717,0,0,0,817,818,818,819,0,0,0,0,0,0,0,0,0,885,91,0,0,0,0,0,0,0,
+437,1117,328,873,874,875,717,0,0,719,85,0,0,88,717,0,0,0,1097,1098,1098,1099,0,0,0,0,0,0,0,0,0,719,147,0,0,0,0,0,0,0,
+0,0,0,1093,1094,1095,942,0,0,941,421,1098,1098,423,942,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,719,203,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,165,166,167,168,0,0,941,662,662,662,662,662,662,662,662,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+1143,1119,1120,0,0,0,0,165,166,167,168,0,0,0,0,0,0,0,0,0,0,0,0,0,0,165,166,167,168,0,0,0,0,0,0,0,0,0,0,0,
+826,826,826,826,826,826,826,826,826,826,659,0,0,0,0,0,1199,0,0,0,1198,0,0,0,0,0,0,0,0,0,0,717,885,165,166,167,165,166,167,168,
+265,265,266,265,266,266,265,266,265,266,716,165,166,167,168,0,1255,0,0,0,1254,0,165,166,167,168,0,0,0,0,0,0,719,0,0,0,0,0,0,0,
+265,266,266,266,266,266,265,266,265,266,769,826,826,826,826,826,538,0,0,0,537,826,826,826,826,826,659,0,0,0,0,717,719,0,0,166,165,166,167,168,
+632,632,623,622,622,622,566,566,566,624,257,266,265,266,266,267,146,0,0,0,259,257,265,266,265,266,769,826,826,826,659,717,719,0,0,0,0,0,0,0,
+0,632,621,0,0,680,1073,1074,0,456,257,266,265,266,266,267,202,0,0,0,315,257,265,266,265,265,257,265,265,266,716,165,166,167,168,0,0,0,0,0,
+0,632,621,0,678,0,1129,1130,114,509,566,566,566,566,566,566,566,0,0,0,566,566,566,566,622,624,313,265,265,266,769,826,826,826,659,0,0,0,0,0,
+632,632,901,0,789,513,1185,1186,0,0,737,738,739,740,0,0,0,0,0,0,114,114,114,114,621,678,0,0,0,0,257,265,265,266,716,0,165,166,167,168,
+342,676,83,83,84,342,342,343,0,0,793,794,795,796,0,0,0,0,0,0,114,114,114,114,621,678,0,0,0,0,313,265,265,266,769,826,826,826,826,826,
+286,676,81,81,82,289,289,676,0,0,849,850,851,852,0,0,1200,0,0,0,0,0,0,114,621,0,622,622,622,0,0,0,0,0,257,265,266,265,265,266,
+286,287,139,139,140,289,289,288,0,0,905,906,907,908,0,0,0,0,0,0,0,0,0,114,679,677,677,677,0,678,0,0,0,0,313,265,266,265,265,266,
+1019,1020,621,118,678,1135,1136,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,114,114,114,114,114,679,902,622,622,622,1015,0,0,0,0,0,0,
+1019,1020,621,118,678,1191,1192,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,617,618,114,114,114,114,114,679,0,0,0,622,622,622,622,624,0,
+623,790,1126,0,1125,845,624,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,673,674,617,618,114,114,114,0,679,677,677,677,677,677,677,680,0,
+621,0,0,0,0,0,678,630,631,632,0,1019,1020,1019,1020,1020,904,0,0,0,1013,338,338,729,730,673,674,617,617,618,114,114,114,114,114,0,0,0,0,0,
+621,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,677,677,677,677,680,114,338,114,114,729,730,293,293,293,617,617,618,617,617,618,617,618,617,618,
+621,0,0,0,0,0,678,630,631,632,0,1019,1020,1019,1020,1019,1020,1021,0,1135,1136,114,338,338,338,338,114,729,729,729,293,293,293,293,293,293,293,293,293,293,
+679,677,677,677,677,677,680,0,0,0,0,0,0,0,0,0,0,0,0,1191,1192,114,114,114,114,338,338,114,114,114,729,729,729,729,729,729,729,729,729,729
+</data>
+ </layer>
+ <layer id="3" name="Tile Layer 3" width="40" height="30">
+  <data encoding="csv">
+853,854,855,856,0,0,0,0,0,0,0,1021,1133,1134,0,0,0,0,0,0,0,0,0,0,0,105,107,105,105,107,105,0,0,0,0,920,630,631,632,569,
+909,910,911,912,0,0,0,0,0,0,0,0,1189,1190,0,0,0,0,0,0,0,0,0,0,0,105,107,107,107,105,105,0,0,0,0,976,0,0,0,0,
+941,662,662,662,662,662,662,862,862,862,0,0,0,1087,0,0,0,0,0,0,0,0,0,0,0,105,107,0,0,107,107,0,0,0,0,973,0,0,1030,1030,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,105,0,0,0,0,105,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,881,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1117,1117,0,0,0,661,662,662,662,662,663,0,0,0,0,0,0,0,0,0,0,
+0,0,0,438,438,438,0,0,0,0,662,1117,1117,0,0,0,0,0,0,0,0,0,0,0,717,885,0,0,886,719,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,717,0,0,0,0,719,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,717,0,0,0,0,719,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,717,0,0,0,0,719,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,773,774,774,774,774,775,0,0,0,0,0,0,0,0,0,0,
+1213,0,1213,0,1213,0,1213,0,1213,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,773,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,90,0,0,0,90,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+739,740,0,0,0,1069,0,0,0,1070,0,0,1213,0,1213,0,0,0,0,0,0,0,1213,0,1213,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+795,796,0,0,1069,1073,1074,1135,1136,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1213,0,1213,0,0,0,0,0,0,0,0,0,0,
+851,852,0,0,0,1129,1130,1191,1192,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1070,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+907,908,0,0,0,1185,1186,0,0,1073,1074,0,0,0,0,1019,1020,0,0,0,1019,1020,0,0,0,0,0,0,0,0,0,1213,0,1213,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,1129,1130,0,0,0,0,1019,1020,0,0,0,1019,1020,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,1185,1186,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1125,0,0,0,624,0,0,1135,1136,0,1213,0,1213,0,1213,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1070,0,0,0,1191,1192,0,0,0,0,0,0,
+0,0,0,0,0,0,0,741,742,743,744,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1069,1070,0,0,0,1175,1175,0,630,630,630,
+0,0,0,0,0,0,0,797,798,799,800,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1135,1136,0,1070,0,0,0,0,0,0,0,1174,
+0,0,0,0,0,0,0,853,854,855,856,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1191,1192,0,0,0,0,0,0,0,0,0,1174,
+0,0,0,0,0,0,0,909,910,911,912,0,0,0,0,0,0,0,0,0,0,741,742,743,744,741,742,743,744,0,630,630,630,630,630,630,630,630,630,0,
+0,0,0,0,0,0,1238,566,566,566,566,566,566,566,566,566,1181,0,0,0,0,797,798,799,800,797,798,799,800,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,741,742,743,744,0,0,0,0,0,0,0,1135,1136,0,853,854,855,856,853,854,855,856,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,797,798,799,800,0,0,0,0,0,0,0,1191,1192,0,909,910,911,912,909,910,911,912,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer id="4" name="Tile Layer 4" width="40" height="30">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+973,862,862,863,1030,1030,1030,0,0,1029,1030,1030,1030,1030,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,717,0,0,0,0,0,0,719,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,717,0,0,0,0,0,0,719,717,0,0,0,0,0,0,719,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,717,0,0,0,0,0,0,719,717,0,0,0,0,0,0,719,0,0,0,0,0,0,717,0,0,0,0,0,0,0,0,0,
+662,662,662,0,0,0,0,0,717,0,0,0,0,0,0,719,717,0,0,0,0,0,0,719,0,0,0,0,0,0,717,0,0,0,0,0,0,0,0,0,
+774,774,774,662,662,662,0,0,717,0,0,662,662,662,0,719,773,774,774,774,774,774,774,775,0,0,0,0,0,0,717,0,0,0,0,0,0,0,0,0,
+0,0,0,774,774,774,774,0,773,774,774,774,774,774,774,775,0,0,0,0,0,0,0,0,0,0,0,0,0,0,717,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,773,774,774,774,774,774,774,774,774,774,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,661,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,1073,1074,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,1129,1130,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,1185,1186,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1135,1136,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1191,1192,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1125,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1077,1078,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1133,1134,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,686,686,686,686,686,686,686,0,0,0,0,0,0,1189,1190,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer id="5" name="Tile Layer 5" width="40" height="30">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,1141,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1143,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,1141,0,0,0,0,0,0,0,0,0,0,0,0,625,0,0,0,0,0,0,0,1143,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,625,0,0,0,0,0,0,0,625,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,625,0,0,0,0,0,0,0,625,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,625,0,0,0,0,0,0,0,625,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,625,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1143,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,1141,0,0,0,0,0,625,0,0,0,0,0,0,1143,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,632,0,0,0,0,0,0,0,632,632,0,0,1021,1021,0,1079,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,632,0,0,0,0,0,0,0,632,632,0,0,1023,1023,1079,1079,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1079,0,0,0,0,0,0,1021,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1079,0,0,0,0,0,0,1143,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1079,1079,1079,1021,1079,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1021,1079,1079,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,1143,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="6" name="Object Layer 1" visible="0">
+  <object id="1" x="3" y="953" width="221" height="5"/>
+  <object id="2" x="2" y="392" width="55" height="407"/>
+  <object id="3" x="163" y="578" width="120" height="218"/>
+  <object id="4" x="193" y="543" width="93" height="29"/>
+  <object id="5" x="290" y="609" width="250" height="232"/>
+  <object id="6" x="223" y="802" width="65" height="43"/>
+  <object id="8" x="223" y="893" width="495" height="62"/>
+  <object id="9" x="644" y="606" width="119" height="221"/>
+  <object id="10" x="669" y="830" width="608" height="128"/>
+  <object id="11" x="763" y="734" width="134" height="92"/>
+  <object id="12" x="899" y="767" width="60" height="61"/>
+  <object id="13" x="962" y="800" width="29" height="26"/>
+  <object id="14" x="0" y="803" width="5" height="152"/>
+  <object id="15" x="6" y="391" width="315" height="101"/>
+  <object id="16" x="331" y="454" width="205" height="100"/>
+  <object id="17" x="644" y="450" width="216" height="101"/>
+  <object id="18" x="865" y="480" width="119" height="171"/>
+  <object id="19" x="833" y="553" width="29" height="96"/>
+  <object id="20" x="963" y="551" width="153" height="164"/>
+  <object id="21" x="1093" y="639" width="182" height="110"/>
+  <object id="22" x="1253" y="750" width="23" height="111"/>
+  <object id="23" x="1" y="160" width="128" height="107"/>
+  <object id="24" x="98" y="251" width="93" height="42"/>
+  <object id="26" x="108" y="128" width="6" height="30"/>
+  <object id="27" x="132" y="168" width="6" height="78"/>
+  <object id="28" x="144" y="186" width="8" height="61"/>
+  <object id="29" x="161" y="200" width="12" height="45"/>
+  <object id="30" x="176" y="195" width="13" height="55"/>
+  <object id="31" x="322" y="190" width="122" height="106"/>
+  <object id="33" x="382" y="132" width="7" height="54"/>
+  <object id="34" x="394" y="143" width="3" height="44"/>
+  <object id="35" x="404" y="155" width="4" height="32"/>
+  <object id="36" x="416" y="167" width="6" height="19"/>
+  <object id="37" x="368" y="144" width="6" height="44"/>
+  <object id="38" x="352" y="160" width="6" height="29"/>
+  <object id="39" x="337" y="174" width="8" height="13"/>
+  <object id="41" x="300" y="178" width="7"/>
+  <object id="42" x="555" y="144" width="8" height="1"/>
+  <object id="43" x="526" y="444" width="5"/>
+  <object id="44" x="651" y="444" width="6"/>
+  <object id="45" x="149" y="86" width="295" height="4"/>
+  <object id="46" x="-1" y="86" width="94" height="7"/>
+  <object id="47" x="5.33333" y="0" width="116" height="27.3333"/>
+  <object id="48" x="360" y="6.66667" width="18" height="12.6667"/>
+  <object id="49" x="384" y="3.33333" width="55.3333" height="28.6667"/>
+  <object id="50" x="576.667" y="160" width="126" height="126"/>
+  <object id="51" x="639.333" y="96" width="1.33333" height="61.3333"/>
+  <object id="52" x="647.333" y="104" width="4.66667" height="54"/>
+  <object id="53" x="662" y="120.667" width="5.33333" height="37.3333"/>
+  <object id="54" x="675.333" y="134.667" width="4.66667" height="22"/>
+  <object id="55" x="626.667" y="106" width="2.66667" height="54"/>
+  <object id="56" x="610.667" y="123.333" width="4" height="36"/>
+  <object id="57" x="592.667" y="140" width="4.66667" height="20"/>
+  <object id="58" x="688.667" y="146.667" width="2.66667" height="10.6667"/>
+  <object id="59" x="801.333" y="0" width="4.66667" height="190"/>
+  <object id="60" x="985.333" y="1.33333" width="3.33333" height="186"/>
+  <object id="61" x="805.333" y="181.333" width="55.3333" height="6"/>
+  <object id="62" x="932" y="182.667" width="51.3333" height="6"/>
+  <object id="63" x="808.667" y="1.33333" width="174.667" height="50"/>
+  <object id="64" x="942" y="66" width="37.3333" height="16"/>
+  <object id="65" x="974" y="96.6667" width="7.33333" height="16.6667"/>
+  <object id="66" x="810" y="65.3333" width="48.6667" height="13.3333"/>
+  <object id="67" x="810" y="98.6667" width="8" height="14.6667"/>
+  <object id="68" x="796" y="284.667" width="135.333" height="52.6667"/>
+  <object id="69" x="796" y="383.333" width="136.667" height="17.3333"/>
+  <object id="70" x="1018" y="415.333" width="262" height="17.3333"/>
+  <object id="71" x="1126" y="481.333" width="153.333" height="13.3333"/>
+  <object id="73" x="1022.67" y="487.333" width="6.66667" height="54"/>
+  <object id="74" x="1152.67" y="609.333" width="126" height="28.6667"/>
+  <object id="75" x="1028.67" y="123.333" width="26" height="98"/>
+  <object id="76" x="1056.67" y="159.333" width="224.667" height="140"/>
+  <object id="77" x="1027.33" y="222" width="28" height="77.3333"/>
+  <object id="78" x="1040" y="64" width="1.33333" height="57.3333"/>
+  <object id="79" x="1044.67" y="82" width="2.66667" height="41.3333"/>
+  <object id="80" x="1032" y="84.6667" width="2.66667" height="37.3333"/>
+  <object id="81" x="1050.67" y="101.333" width="2.66667" height="20.6667"/>
+  <object id="83" x="1125.33" y="0.666667" width="4" height="93.3333"/>
+  <object id="84" x="1129.33" y="87.3333" width="12.6667" height="4.66667"/>
+  <object id="85" x="1222" y="86.6667" width="55.3333" height="1.33333"/>
+  <object id="87" x="1256.67" y="13.3333" width="11.3333" height="7.33333"/>
+ </objectgroup>
+ <objectgroup id="7" name="enemies">
+  <object id="88" name="enemy" x="856.667" y="106" width="13.3333" height="10">
+   <properties>
+    <property name="deadBack" value="assets/enemy/enemy5 death back.png"/>
+    <property name="deadFront" value="assets/enemy/enemy5 death front.png"/>
+    <property name="deadLeft" value="assets/enemy/enemy5 death left.png"/>
+    <property name="deadRight" value="assets/enemy/enemy5 death right.png"/>
+    <property name="hurtBack" value="assets/enemy/enemy5 hurt back.png"/>
+    <property name="hurtFront" value="assets/enemy/enemy5 hurt front.png"/>
+    <property name="hurtLeft" value="assets/enemy/enemy5 hurt left.png"/>
+    <property name="hurtRight" value="assets/enemy/enemy5 hurt right.png"/>
+    <property name="spriteBack" value="assets/enemy/enemy5 back attack.png"/>
+    <property name="spriteFront" value="assets/enemy/enemy5 front attack.png"/>
+    <property name="spriteLeft" value="assets/enemy/enemy5 left attack.png"/>
+    <property name="spriteRight" value="assets/enemy/enemy5 right attack.png"/>
+    <property name="walkBack" value="assets/enemy/enemy5 back walk.png"/>
+    <property name="walkFront" value="assets/enemy/enemy5 front walk.png"/>
+    <property name="walkLeft" value="assets/enemy/enemy5 left walk.png"/>
+    <property name="walkRight" value="assets/enemy/enemy5 right walk.png"/>
+   </properties>
+  </object>
+  <object id="89" name="enemy" x="1146" y="22.6667" width="15.3333" height="12">
+   <properties>
+    <property name="deadBack" value="assets/enemy/enemy1 death back.png"/>
+    <property name="deadFront" value="assets/enemy/enemy1 death front.png"/>
+    <property name="deadLeft" value="assets/enemy/enemy1 death left.png"/>
+    <property name="deadRight" value="assets/enemy/enemy1 death right.png"/>
+    <property name="hurtBack" value="assets/enemy/enemy1 hurt back.png"/>
+    <property name="hurtFront" value="assets/enemy/enemy1 hurt front.png"/>
+    <property name="hurtLeft" value="assets/enemy/enemy1 hurt left.png"/>
+    <property name="hurtRight" value="assets/enemy/enemy1 hurt right.png"/>
+    <property name="spriteBack" value="assets/enemy/enemy1 back attack.png"/>
+    <property name="spriteFront" value="assets/enemy/enemy1 front attack.png"/>
+    <property name="spriteLeft" value="assets/enemy/enemy1 left attack.png"/>
+    <property name="spriteRight" value="assets/enemy/enemy1 right attack.png"/>
+    <property name="walkBack" value="assets/enemy/enemy1 back walk.png"/>
+    <property name="walkFront" value="assets/enemy/enemy1 front walk.png"/>
+    <property name="walkLeft" value="assets/enemy/enemy1 left walk.png"/>
+    <property name="walkRight" value="assets/enemy/enemy1 right walk.png"/>
+   </properties>
+  </object>
+  <object id="90" name="enemy" x="1163.33" y="527.333" width="12" height="11.3333">
+   <properties>
+    <property name="deadBack" value="assets/enemy/enemy3 death back.png"/>
+    <property name="deadFront" value="assets/enemy/enemy3 death front.png"/>
+    <property name="deadLeft" value="assets/enemy/enemy3 death left.png"/>
+    <property name="deadRight" value="assets/enemy/enemy3 death right.png"/>
+    <property name="hurtBack" value="assets/enemy/enemy3 hurt back.png"/>
+    <property name="hurtFront" value="assets/enemy/enemy3 hurt front.png"/>
+    <property name="hurtLeft" value="assets/enemy/enemy3 hurt left.png"/>
+    <property name="hurtRight" value="assets/enemy/enemy3 hurt right.png"/>
+    <property name="spriteBack" value="assets/enemy/enemy3 back attack.png"/>
+    <property name="spriteFront" value="assets/enemy/enemy3 front attack.png"/>
+    <property name="spriteLeft" value="assets/enemy/enemy3 left attack.png"/>
+    <property name="spriteRight" value="assets/enemy/enemy3 right attack.png"/>
+    <property name="walkBack" value="assets/enemy/enemy3 back walk.png"/>
+    <property name="walkFront" value="assets/enemy/enemy3 front walk.png"/>
+    <property name="walkLeft" value="assets/enemy/enemy3 left walk.png"/>
+    <property name="walkRight" value="assets/enemy/enemy3 right walk.png"/>
+   </properties>
+  </object>
+  <object id="91" name="enemy" x="1019.33" y="776.667" width="16" height="11.3333">
+   <properties>
+    <property name="deadBack" value="assets/enemy/enemy2 death back.png"/>
+    <property name="deadFront" value="assets/enemy/enemy2 death front.png"/>
+    <property name="deadLeft" value="assets/enemy/enemy2 death left.png"/>
+    <property name="deadRight" value="assets/enemy/enemy2 death right.png"/>
+    <property name="hurtBack" value="assets/enemy/enemy2 hurt back.png"/>
+    <property name="hurtFront" value="assets/enemy/enemy2 hurt front.png"/>
+    <property name="hurtLeft" value="assets/enemy/enemy2 hurt left.png"/>
+    <property name="hurtRight" value="assets/enemy/enemy2 hurt right.png"/>
+    <property name="spriteBack" value="assets/enemy/enemy2 back attack.png"/>
+    <property name="spriteFront" value="assets/enemy/enemy2 front attack.png"/>
+    <property name="spriteLeft" value="assets/enemy/enemy2 left attack.png"/>
+    <property name="spriteRight" value="assets/enemy/enemy2 right attack.png"/>
+    <property name="walkBack" value="assets/enemy/enemy2 back walk.png"/>
+    <property name="walkFront" value="assets/enemy/enemy2 front walk.png"/>
+    <property name="walkLeft" value="assets/enemy/enemy2 left walk.png"/>
+    <property name="walkRight" value="assets/enemy/enemy2 right walk.png"/>
+   </properties>
+  </object>
+  <object id="92" name="enemy" x="797.333" y="680.667" width="14.6667" height="10.6667">
+   <properties>
+    <property name="deadBack" value="assets/enemy/enemy3 death back.png"/>
+    <property name="deadFront" value="assets/enemy/enemy3 death front.png"/>
+    <property name="deadLeft" value="assets/enemy/enemy3 death left.png"/>
+    <property name="deadRight" value="assets/enemy/enemy3 death right.png"/>
+    <property name="hurtBack" value="assets/enemy/enemy3 hurt back.png"/>
+    <property name="hurtFront" value="assets/enemy/enemy3 hurt front.png"/>
+    <property name="hurtLeft" value="assets/enemy/enemy3 hurt left.png"/>
+    <property name="hurtRight" value="assets/enemy/enemy3 hurt right.png"/>
+    <property name="spriteBack" value="assets/enemy/enemy3 back attack.png"/>
+    <property name="spriteFront" value="assets/enemy/enemy3 front attack.png"/>
+    <property name="spriteLeft" value="assets/enemy/enemy3 left attack.png"/>
+    <property name="spriteRight" value="assets/enemy/enemy3 right attack.png"/>
+    <property name="walkBack" value="assets/enemy/enemy3 back walk.png"/>
+    <property name="walkFront" value="assets/enemy/enemy3 front walk.png"/>
+    <property name="walkLeft" value="assets/enemy/enemy3 left walk.png"/>
+    <property name="walkRight" value="assets/enemy/enemy3 right walk.png"/>
+   </properties>
+  </object>
+  <object id="93" name="enemy" x="25.3333" y="862" width="13.3333" height="12">
+   <properties>
+    <property name="deadBack" value="assets/enemy/enemy2 death back.png"/>
+    <property name="deadFront" value="assets/enemy/enemy2 death front.png"/>
+    <property name="deadLeft" value="assets/enemy/enemy2 death left.png"/>
+    <property name="deadRight" value="assets/enemy/enemy2 death right.png"/>
+    <property name="hurtBack" value="assets/enemy/enemy2 hurt back.png"/>
+    <property name="hurtFront" value="assets/enemy/enemy2 hurt front.png"/>
+    <property name="hurtLeft" value="assets/enemy/enemy2 hurt left.png"/>
+    <property name="hurtRight" value="assets/enemy/enemy2 hurt right.png"/>
+    <property name="spriteBack" value="assets/enemy/enemy2 back attack.png"/>
+    <property name="spriteFront" value="assets/enemy/enemy2 front attack.png"/>
+    <property name="spriteLeft" value="assets/enemy/enemy2 left attack.png"/>
+    <property name="spriteRight" value="assets/enemy/enemy2 right attack.png"/>
+    <property name="walkBack" value="assets/enemy/enemy2 back walk.png"/>
+    <property name="walkFront" value="assets/enemy/enemy2 front walk.png"/>
+    <property name="walkLeft" value="assets/enemy/enemy2 left walk.png"/>
+    <property name="walkRight" value="assets/enemy/enemy2 right walk.png"/>
+   </properties>
+  </object>
+  <object id="94" name="enemy" x="140" y="31.3333" width="12.6667" height="10.6667">
+   <properties>
+    <property name="deadBack" value="assets/enemy/enemy2 death back.png"/>
+    <property name="deadFront" value="assets/enemy/enemy2 death front.png"/>
+    <property name="deadLeft" value="assets/enemy/enemy2 death left.png"/>
+    <property name="deadRight" value="assets/enemy/enemy2 death right.png"/>
+    <property name="hurtBack" value="assets/enemy/enemy2 hurt back.png"/>
+    <property name="hurtFront" value="assets/enemy/enemy2 hurt front.png"/>
+    <property name="hurtLeft" value="assets/enemy/enemy2 hurt left.png"/>
+    <property name="hurtRight" value="assets/enemy/enemy2 hurt right.png"/>
+    <property name="spriteBack" value="assets/enemy/enemy2 back attack.png"/>
+    <property name="spriteFront" value="assets/enemy/enemy2 front attack.png"/>
+    <property name="spriteLeft" value="assets/enemy/enemy2 left attack.png"/>
+    <property name="spriteRight" value="assets/enemy/enemy2 right attack.png"/>
+    <property name="walkBack" value="assets/enemy/enemy2 back walk.png"/>
+    <property name="walkFront" value="assets/enemy/enemy2 front walk.png"/>
+    <property name="walkLeft" value="assets/enemy/enemy2 left walk.png"/>
+    <property name="walkRight" value="assets/enemy/enemy2 right walk.png"/>
+   </properties>
+  </object>
+  <object id="103" name="enemy" x="546" y="406" width="14" height="13.3333"/>
+ </objectgroup>
+ <objectgroup id="10" name="treasure">
+  <object id="104" name="treasure3" x="304.667" y="33.3333" width="16" height="9.33333">
+   <properties>
+    <property name="front" value="assets/treasure/treasure chest.png"/>
+    <property name="open" value="assets/treasure/treasure chest.png"/>
+   </properties>
+  </object>
+  <object id="105" name="treasure4" x="884" y="74.6667" width="16.6667" height="9.33333">
+   <properties>
+    <property name="front" value="assets/treasure/treasure chest.png"/>
+    <property name="open" value="assets/treasure/treasure chest.png"/>
+   </properties>
+  </object>
+  <object id="106" name="treasure5" x="1230.67" y="38.6667" width="14.6667" height="10">
+   <properties>
+    <property name="front" value="assets/treasure/treasure chest.png"/>
+    <property name="open" value="assets/treasure/treasure chest.png"/>
+   </properties>
+  </object>
+  <object id="107" name="treasure6" x="1234.67" y="579.333" width="15.3333" height="9.33333">
+   <properties>
+    <property name="front" value="assets/treasure/treasure chest.png"/>
+    <property name="open" value="assets/treasure/treasure chest.png"/>
+   </properties>
+  </object>
+  <object id="108" name="treasure2" x="1137.33" y="803.333" width="14" height="7.33333">
+   <properties>
+    <property name="front" value="assets/treasure/treasure chest.png"/>
+    <property name="open" value="assets/treasure/treasure chest.png"/>
+   </properties>
+  </object>
+  <object id="109" name="treasure1" x="56" y="919.333" width="14" height="8.66667">
+   <properties>
+    <property name="front" value="assets/treasure/treasure chest.png"/>
+    <property name="open" value="assets/treasure/treasure chest.png"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="11" name="explosion" visible="0">
+  <object id="110" name="explosion" x="58.5" y="921.5" width="9" height="5">
+   <properties>
+    <property name="explosion" value="assets/explosion/explosion.png"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="8" name="professor">
+  <object id="96" name="professor" x="623.333" y="277.333" width="12.6667" height="8.66667">
+   <properties>
+    <property name="idle_left" value="assets/professor/idle_left.png"/>
+    <property name="idle_right" value="assets/professor/idle_right.png"/>
+    <property name="walkLeft" value="assets/professor/left.png"/>
+    <property name="walkRight" value="assets/professor/right.png"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="9" name="slime1">
+  <object id="97" name="slime1" x="506.667" y="44.6667" width="12" height="10.6667">
+   <properties>
+    <property name="deadBack" value="assets/enemy/slime2 death back.png"/>
+    <property name="deadFront" value="assets/enemy/slime2 death front.png"/>
+    <property name="deadLeft" value="assets/enemy/slime2 death left.png"/>
+    <property name="deadRight" value="assets/enemy/slime2 death right.png"/>
+    <property name="hurtBack" value="assets/enemy/slime2 hurt back.png"/>
+    <property name="hurtFront" value="assets/enemy/slime2 hurt front.png"/>
+    <property name="hurtLeft" value="assets/enemy/slime2 hurt left.png"/>
+    <property name="hurtRight" value="assets/enemy/slime2 hurt right.png"/>
+    <property name="spriteBack" value="assets/enemy/Slime2_Attack_Back.png"/>
+    <property name="spriteFront" value="assets/enemy/Slime2_Attack_Front.png"/>
+    <property name="spriteLeft" value="assets/enemy/Slime2_Attack_Left.png"/>
+    <property name="spriteRight" value="assets/enemy/Slime2_Attack_Right.png"/>
+    <property name="walkBack" value="assets/enemy/Slime2_back.png"/>
+    <property name="walkFront" value="assets/enemy/Slime2_front.png"/>
+    <property name="walkLeft" value="assets/enemy/Slime2_left.png"/>
+    <property name="walkRight" value="assets/enemy/Slime2_right.png"/>
+   </properties>
+  </object>
+  <object id="98" name="slime1" x="198.667" y="148.667" width="14.6667" height="8.66667">
+   <properties>
+    <property name="deadBack" value="assets/enemy/slime3 death back.png"/>
+    <property name="deadFront" value="assets/enemy/slime3 death front.png"/>
+    <property name="deadLeft" value="assets/enemy/slime3 death left.png"/>
+    <property name="deadRight" value="assets/enemy/slime3 death right.png"/>
+    <property name="hurtBack" value="assets/enemy/slime3 hurt back.png"/>
+    <property name="hurtFront" value="assets/enemy/slime3 hurt front.png"/>
+    <property name="hurtLeft" value="assets/enemy/slime3 hurt left.png"/>
+    <property name="hurtRight" value="assets/enemy/slime3 hurt right.png"/>
+    <property name="spriteBack" value="assets/enemy/Slime3_Attack_Back.png"/>
+    <property name="spriteFront" value="assets/enemy/Slime3_Attack_Front.png"/>
+    <property name="spriteLeft" value="assets/enemy/Slime3_Attack_Left.png"/>
+    <property name="spriteRight" value="assets/enemy/Slime3_Attack_Right.png"/>
+    <property name="walkBack" value="assets/enemy/Slime3_back.png"/>
+    <property name="walkFront" value="assets/enemy/Slime3_front.png"/>
+    <property name="walkLeft" value="assets/enemy/Slime3_left.png"/>
+    <property name="walkRight" value="assets/enemy/Slime3_right.png"/>
+   </properties>
+  </object>
+  <object id="99" name="slime1" x="346.667" y="566.667" width="12" height="7.33333">
+   <properties>
+    <property name="deadBack" value="assets/enemy/slime3 death back.png"/>
+    <property name="deadFront" value="assets/enemy/slime3 death front.png"/>
+    <property name="deadLeft" value="assets/enemy/slime3 death left.png"/>
+    <property name="deadRight" value="assets/enemy/slime3 death right.png"/>
+    <property name="hurtBack" value="assets/enemy/slime3 hurt back.png"/>
+    <property name="hurtFront" value="assets/enemy/slime3 hurt front.png"/>
+    <property name="hurtLeft" value="assets/enemy/slime3 hurt left.png"/>
+    <property name="hurtRight" value="assets/enemy/slime3 hurt right.png"/>
+    <property name="spriteBack" value="assets/enemy/Slime3_Attack_Back.png"/>
+    <property name="spriteFront" value="assets/enemy/Slime3_Attack_Front.png"/>
+    <property name="spriteLeft" value="assets/enemy/Slime3_Attack_Left.png"/>
+    <property name="spriteRight" value="assets/enemy/Slime3_Attack_Right.png"/>
+    <property name="walkBack" value="assets/enemy/Slime3_back.png"/>
+    <property name="walkFront" value="assets/enemy/Slime3_front.png"/>
+    <property name="walkLeft" value="assets/enemy/Slime3_left.png"/>
+    <property name="walkRight" value="assets/enemy/Slime3_right.png"/>
+   </properties>
+  </object>
+  <object id="100" name="slime1" x="81.3333" y="602.667" width="6.66667" height="9.33333">
+   <properties>
+    <property name="deadBack" value="assets/enemy/slime2 death back.png"/>
+    <property name="deadFront" value="assets/enemy/slime2 death front.png"/>
+    <property name="deadLeft" value="assets/enemy/slime2 death left.png"/>
+    <property name="deadRight" value="assets/enemy/slime2 death right.png"/>
+    <property name="hurtBack" value="assets/enemy/slime2 hurt back.png"/>
+    <property name="hurtFront" value="assets/enemy/slime2 hurt front.png"/>
+    <property name="hurtLeft" value="assets/enemy/slime2 hurt left.png"/>
+    <property name="hurtRight" value="assets/enemy/slime2 hurt right.png"/>
+    <property name="spriteBack" value="assets/enemy/Slime2_Attack_Back.png"/>
+    <property name="spriteFront" value="assets/enemy/Slime2_Attack_Front.png"/>
+    <property name="spriteLeft" value="assets/enemy/Slime2_Attack_Left.png"/>
+    <property name="spriteRight" value="assets/enemy/Slime2_Attack_Right.png"/>
+    <property name="walkBack" value="assets/enemy/Slime2_back.png"/>
+    <property name="walkFront" value="assets/enemy/Slime2_front.png"/>
+    <property name="walkLeft" value="assets/enemy/Slime2_left.png"/>
+    <property name="walkRight" value="assets/enemy/Slime2_right.png"/>
+   </properties>
+  </object>
+  <object id="101" name="slime1" x="358.667" y="851.333" width="8.66667" height="6.66667">
+   <properties>
+    <property name="deadBack" value="assets/enemy/slime1 death back.png"/>
+    <property name="deadFront" value="assets/enemy/slime1 death front.png"/>
+    <property name="deadLeft" value="assets/enemy/slime1 death left.png"/>
+    <property name="deadRight" value="assets/enemy/slime1 death right.png"/>
+    <property name="hurtBack" value="assets/enemy/slime1 hurt back.png"/>
+    <property name="hurtFront" value="assets/enemy/slime1 hurt front.png"/>
+    <property name="hurtLeft" value="assets/enemy/slime1 hurt left.png"/>
+    <property name="hurtRight" value="assets/enemy/slime1 hurt right.png"/>
+    <property name="spriteBack" value="assets/enemy/Slime1_Attack_Back.png"/>
+    <property name="spriteFront" value="assets/enemy/Slime1_Attack_Front.png"/>
+    <property name="spriteLeft" value="assets/enemy/Slime1_Attack_Left.png"/>
+    <property name="spriteRight" value="assets/enemy/Slime1_Attack_Right.png"/>
+    <property name="walkBack" value="assets/enemy/Slime1_back.png"/>
+    <property name="walkFront" value="assets/enemy/Slime1_front.png"/>
+    <property name="walkLeft" value="assets/enemy/Slime1_left.png"/>
+    <property name="walkRight" value="assets/enemy/Slime1_right.png"/>
+   </properties>
+  </object>
+  <object id="102" name="slime1" x="1124.67" y="435.333" width="14" height="8">
+   <properties>
+    <property name="deadBack" value="assets/enemy/slime1 death back.png"/>
+    <property name="deadFront" value="assets/enemy/slime1 death front.png"/>
+    <property name="deadLeft" value="assets/enemy/slime1 death left.png"/>
+    <property name="deadRight" value="assets/enemy/slime1 death right.png"/>
+    <property name="hurtBack" value="assets/enemy/slime1 hurt back.png"/>
+    <property name="hurtFront" value="assets/enemy/slime1 hurt front.png"/>
+    <property name="hurtLeft" value="assets/enemy/slime1 hurt left.png"/>
+    <property name="hurtRight" value="assets/enemy/slime1 hurt right.png"/>
+    <property name="spriteBack" value="assets/enemy/Slime1_Attack_Back.png"/>
+    <property name="spriteFront" value="assets/enemy/Slime1_Attack_Front.png"/>
+    <property name="spriteLeft" value="assets/enemy/Slime1_Attack_Left.png"/>
+    <property name="spriteRight" value="assets/enemy/Slime1_Attack_Right.png"/>
+    <property name="walkBack" value="assets/enemy/Slime1_back.png"/>
+    <property name="walkFront" value="assets/enemy/Slime1_front.png"/>
+    <property name="walkLeft" value="assets/enemy/Slime1_left.png"/>
+    <property name="walkRight" value="assets/enemy/Slime1_right.png"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
