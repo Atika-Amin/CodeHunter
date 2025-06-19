@@ -8,11 +8,13 @@ import java.util.List;
 
 public class TreasureManager2 implements TreasureManagerBase{
     private List<Treasure> treasures;
+    private final int id = 3;
 
     public TreasureManager2(TileMap map){
         treasures = new ArrayList<>();
         loadTreasuresFromMap(map);
     }
+
 
     public TreasureManager2() {
         treasures = new ArrayList<>();
@@ -42,10 +44,10 @@ public class TreasureManager2 implements TreasureManagerBase{
                             obj.get("name").asText().equalsIgnoreCase("treasure3")||obj.get("name").asText().equalsIgnoreCase("treasure4")||
                             obj.get("name").asText().equalsIgnoreCase("treasure5")||obj.get("name").asText().equalsIgnoreCase("treasure6"))) {
 
-
+                        System.out.println("load treasure from map is called!!");
 
                         String treasureName = obj.has("name") ? obj.get("name").asText() : "unknown";
-
+                        System.out.println("✅ Treasure created: " + treasureName);  // Debug line
 
                         double x = obj.get("x").asDouble();
                         double y = obj.get("y").asDouble();
@@ -72,7 +74,7 @@ public class TreasureManager2 implements TreasureManagerBase{
                         }
 
                         if (frontImagePath.isEmpty() || openImagePath.isEmpty()) {
-
+                            System.err.println("⚠️ Skipping treasure at (" + x + ", " + y + "): Missing image properties!");
                             continue;
                         }
 
@@ -151,7 +153,15 @@ public class TreasureManager2 implements TreasureManagerBase{
 
     }
 
-
+    public int getRemainingTreasureCount() {
+        int count = 2;
+        for (Treasure treasure : treasures) {
+            if (treasure.isSolved()) {
+                count--;
+            }
+        }
+        return count;
+    }
 
     public List<Treasure> getTreasures() {
         return treasures;

@@ -8,6 +8,7 @@ import java.util.List;
 
 public class TreasureManager implements TreasureManagerBase {
     private static List<Treasure> treasures;
+    private final int id = 1;
 
     public TreasureManager(TileMap map){
         treasures = new ArrayList<>();
@@ -136,7 +137,7 @@ public class TreasureManager implements TreasureManagerBase {
         return null; // Return null if no case matches
 
     }
-    public static int getRemainingTreasureCount() {
+    public int getRemainingTreasureCount() {
         int count = 2;
         for (Treasure treasure : treasures) {
             if (treasure.isSolved()) {

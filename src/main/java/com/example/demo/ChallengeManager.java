@@ -31,7 +31,7 @@ public class ChallengeManager {
     private static int currentPoints = 0;
     private static int totalPoints = 0;
     private static Label pointsLabel;
-    TreasureManagerBase currentTreasureManager;
+    private static TreasureManagerBase currentManager;
 
     // You’ll call this method in game UI setup
     public static void setupPointsDisplay(Pane root) {
@@ -185,21 +185,13 @@ public class ChallengeManager {
                 }
 
                 if (isCorrect) {
-                    int remaining = TreasureManager.getRemainingTreasureCount();
-
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Treasure Solved!");
                     DialogPane dialogPane = alert.getDialogPane();
                     dialogPane.getStylesheets().add(ChallengeManager.class.getResource("/com/example/demo/wooden-theme.css").toExternalForm());
                     dialogPane.getStyleClass().add("wooden-alert");
-                    if (remaining == 0) {
                         alert.setHeaderText("✅ Correct!");
-                        alert.setContentText("🎉 All treasures have been solved!");
-                    } else {
-                        alert.setHeaderText("✅ Correct!");
-                        alert.setContentText("You solved the treasure challenge!\n" + remaining + " treasure(s) remaining.");
-                    }
-
+                        alert.setContentText("You solved the treasure challenge!\n");
                     alert.showAndWait();
                 } else {
                     Alert alert = new Alert(Alert.AlertType.ERROR);

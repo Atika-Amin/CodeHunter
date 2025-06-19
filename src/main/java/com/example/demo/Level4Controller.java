@@ -180,7 +180,47 @@ public class Level4Controller {
                     "    // Safe to dereference p\n" +
                     "}\n" +
                     "Explanation:\n" +
-                    "- Always check if the pointer is `NULL` before dereferencing to avoid segmentation faults!"
+                    "- Always check if the pointer is `NULL` before dereferencing to avoid segmentation faults!",
+
+            // Slide 7: Introduction to Recursion
+            "Introduction to Recursion\n\n" +
+                    "Recursion is a technique where a function calls itself to solve a smaller version of the problem.\n\n" +
+                    "Key Concepts:\n" +
+                    "- Every recursive function must have a **base case** to stop recursion.\n" +
+                    "- Each recursive call should bring the problem closer to the base case.\n\n" +
+                    "Example 1: Factorial using Recursion\n" +
+                    "#include <stdio.h>\n" +
+                    "int factorial(int n) {\n" +
+                    "    if (n == 0) return 1;  // base case\n" +
+                    "    return n * factorial(n - 1);  // recursive call\n" +
+                    "}\n" +
+                    "int main() {\n" +
+                    "    printf(\"%d\", factorial(5));  // prints 120\n" +
+                    "    return 0;\n" +
+                    "}\n\n" +
+                    "Explanation:\n" +
+                    "- `factorial(5)` calls `factorial(4)`, then `factorial(3)`, ... until `factorial(0)`\n" +
+                    "- The base case stops the recursion and the stack unwinds\n\n" +
+
+                    "Example 2: Fibonacci Sequence\n" +
+                    "#include <stdio.h>\n" +
+                    "int fibonacci(int n) {\n" +
+                    "    if (n == 0) return 0;\n" +
+                    "    if (n == 1) return 1;\n" +
+                    "    return fibonacci(n-1) + fibonacci(n-2);\n" +
+                    "}\n" +
+                    "int main() {\n" +
+                    "    for(int i = 0; i < 6; i++) {\n" +
+                    "        printf(\"%d \", fibonacci(i));  // prints 0 1 1 2 3 5\n" +
+                    "    }\n" +
+                    "    return 0;\n" +
+                    "}\n\n" +
+                    "Explanation:\n" +
+                    "- Each call splits into two smaller calls until base cases are reached\n" +
+                    "- Recursive calls build up the Fibonacci sequence\n\n" +
+                    "⚠️ Recursive functions may consume more memory (stack space), so deep recursion can cause stack overflow."
+
+
     };
 
     private int currentSlideIndex = 0;

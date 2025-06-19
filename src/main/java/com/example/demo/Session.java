@@ -4,6 +4,15 @@ public class Session {
     private static int currentUserId;
     private static int knowledgeLevel;
     private static int points;
+    private static String username;
+
+    public static void setUsername(String user) {
+        username = user;
+    }
+
+    public static String getUsername() {
+        return username;
+    }
 
     public static void setCurrentUserId(int userId) {
         currentUserId = userId;

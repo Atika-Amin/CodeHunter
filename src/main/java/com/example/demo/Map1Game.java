@@ -16,9 +16,7 @@ import javafx.scene.transform.Affine;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -85,22 +83,8 @@ public class Map1Game implements GameInterface{
         root.getChildren().add(restartButton.getNode());
 
 
-
-
-        InputStream mapStream = getClass().getResourceAsStream("/assets/maps/map1.tmj");
-        InputStream tilesetStream = getClass().getResourceAsStream("/assets/maps/tileset.png");
-
-
-        System.out.println("map: " + getClass().getResourceAsStream("/assets/maps/map1.tmj"));
-        System.out.println("tileset: " + getClass().getResourceAsStream("/assets/maps/tileset.png"));
-
-
-        if (mapStream == null || tilesetStream == null) {
-            throw new FileNotFoundException("Map or tileset not found in resources.");
-        }
-
-        tileMap = new TileMap(mapStream, tilesetStream);
-
+        tileMap = new TileMap("src/main/resources/assets/maps/map1.tmj",
+                "src/main/resources/assets/maps/tileset.png");
 
         player = new Player(1 * TILE_SIZE, 6.5 * TILE_SIZE, tileMap);
         cameraTransform = new Affine();
@@ -351,8 +335,7 @@ public class Map1Game implements GameInterface{
         }
 
         // Render dialogue box
-        dialogueBox.render(gc, player.getX(), player.getY(), canvas.getWidth(), canvas.getHeight());;
-
+        DialogueBox.render(gc, player.getX(), player.getY(), canvas.getWidth(), canvas.getHeight());
     }
 
     public void pauseGame() {

@@ -9,11 +9,14 @@ import java.util.List;
 public class TreasureManager3 implements TreasureManagerBase{
 
     private List<Treasure> treasures;
+    private final int id = 4;
 
     public TreasureManager3(TileMap map){
         treasures = new ArrayList<>();
         loadTreasuresFromMap(map);
     }
+
+
 
     public TreasureManager3() {
         treasures = new ArrayList<>();
@@ -150,8 +153,15 @@ public class TreasureManager3 implements TreasureManagerBase{
         return null;
 
     }
-
-
+    public int getRemainingTreasureCount() {
+        int count = 2;
+        for (Treasure treasure : treasures) {
+            if (treasure.isSolved()) {
+                count--;
+            }
+        }
+        return count;
+    }
 
     public List<Treasure> getTreasures() {
         return treasures;

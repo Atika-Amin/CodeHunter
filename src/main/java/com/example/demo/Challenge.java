@@ -16,4 +16,3 @@ public class Challenge {
         return expectedKeywords;
     }
 }
-

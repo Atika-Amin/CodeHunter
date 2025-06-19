@@ -51,7 +51,7 @@ public class Treasure {
     public void update(Player player) {
         // Only trigger the opening animation if the treasure hasn't been opened
         if (!isOpened && isCollidingWithPlayer(player)) {
-
+            System.out.println("🎯 Player collided with treasure! Opening...");
             SoundManager.playTreasureOpen();
             open();
         }
@@ -75,7 +75,7 @@ public class Treasure {
         if (!isAnimating) {
             sprite.setImage(openFrontFrames[0]);  // Immediately swap to the first frame of opening animation
             isAnimating = true;
-
+            System.out.println("Instantly swapped to first open frame.");
             animateOpening();  // Start the opening animation
         }
     }
@@ -110,7 +110,7 @@ public class Treasure {
                     challenge.getExpectedKeywords(),
                     () -> {
                         markSolved();  // ✅ Mark this treasure as solved
-
+                        System.out.println("✅ Challenge solved!");
                     }
             );
         }

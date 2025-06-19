@@ -14,9 +14,7 @@ import javafx.scene.transform.Affine;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -85,15 +83,8 @@ public class Map5Game implements GameInterface{
         root.getChildren().add(restartButton.getNode());
 
 
-        InputStream mapStream = getClass().getResourceAsStream("/assets/maps/map3.tmj");
-        InputStream tilesetStream = getClass().getResourceAsStream("/assets/maps/tileset.png");
-
-        if (mapStream == null || tilesetStream == null) {
-            throw new FileNotFoundException("Map or tileset not found in resources.");
-        }
-
-        tileMap = new TileMap(mapStream, tilesetStream);
-
+        tileMap = new TileMap("src/main/resources/assets/maps/map3.tmj",
+                "src/main/resources/assets/maps/tileset.png");
 
         player = new Player(1 * TILE_SIZE, 10 * TILE_SIZE, tileMap);
         cameraTransform = new Affine();

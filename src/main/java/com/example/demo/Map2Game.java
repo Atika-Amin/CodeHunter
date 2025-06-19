@@ -14,9 +14,7 @@ import javafx.scene.transform.Affine;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -86,15 +84,8 @@ public class Map2Game implements GameInterface{
         root.getChildren().add(restartButton.getNode());
 
 
-        InputStream mapStream = getClass().getResourceAsStream("/assets/maps/map2.tmj");
-        InputStream tilesetStream = getClass().getResourceAsStream("/assets/maps/tileset2.png");
-
-        if (mapStream == null || tilesetStream == null) {
-            throw new FileNotFoundException("Map or tileset not found in resources.");
-        }
-
-        tileMap = new TileMap(mapStream, tilesetStream);
-
+        tileMap = new TileMap("src/main/resources/assets/maps/map2.tmj",
+                "src/main/resources/assets/maps/tileset2.png");
 
         player = new Player(1 * TILE_SIZE, 13 * TILE_SIZE, tileMap);
         cameraTransform = new Affine();
@@ -158,7 +149,7 @@ public class Map2Game implements GameInterface{
                     treasureManager.update(player);
                     explosionManager.update(player);
                     healthBarManager.update();
-
+                    System.out.println("Calling checkAndShowWin...");
                     winManager.checkAndShowWin(treasureManager, root, canvas, Map2Game.this,3,mapName);
 
 
@@ -283,36 +274,40 @@ public class Map2Game implements GameInterface{
                 drawWidth,
                 drawHeight
         );
-        // Show professor dialogue when near
+
+        // === Dialogue Triggering Logic ===
         boolean playerNearProfessor = false;
-        // Add this flag at the top of your class:
 
         for (Professor professor : professorManager.getProfessors()) {
             if (professor.isNearPlayer(player)) {
                 playerNearProfessor = true;
 
-                // Show intro dialogue if not already visible
+                // Show intro dialogue if not already shown
                 if (!dialogueBox.isVisible() && !farewellTriggered) {
                     List<String> introDialogue = dialogueManager.getIntroDialogue(mapName);
-                    dialogueBox.show(introDialogue);
-
-                    System.out.println("Player is near professor. Attempting to show dialogue.");
-
+                    if (introDialogue != null && !introDialogue.isEmpty()) {
+                        dialogueBox.show(introDialogue);
+                        System.out.println("Player is near professor. Showing intro dialogue.");
+                    }
                 }
 
-                // Only enable input if farewell hasn't been triggered
+                // Enable input field
                 if (!farewellTriggered) {
                     dialogueBox.getInputField().setDisable(false);
                     dialogueBox.getInputField().setVisible(true);
                 }
 
+                // Handle farewell input
                 String inputText = dialogueBox.getInputField().getText().trim().toLowerCase();
                 if ((inputText.equals("thank you") || inputText.equals("exit")) && !farewellTriggered) {
-                    farewellTriggered = true; // Prevent re-trigger
+                    farewellTriggered = true;
 
-                    List<String> farewellDialogue = DialogueManager.getResponseBasedOnInput(inputText,mapName);
-                    dialogueBox.show(farewellDialogue);
+                    List<String> farewellDialogue = DialogueManager.getResponseBasedOnInput(inputText, mapName);
+                    if (farewellDialogue != null && !farewellDialogue.isEmpty()) {
+                        dialogueBox.show(farewellDialogue);
+                    }
 
+                    // Disable input field after 2 seconds
                     PauseTransition disableInput = new PauseTransition(Duration.seconds(2));
                     disableInput.setOnFinished(e -> {
                         dialogueBox.getInputField().setDisable(true);
@@ -321,6 +316,7 @@ public class Map2Game implements GameInterface{
                     });
                     disableInput.play();
 
+                    // Hide dialogue after 6 seconds
                     PauseTransition hideDialogue = new PauseTransition(Duration.seconds(6));
                     hideDialogue.setOnFinished(e -> {
                         dialogueBox.hide();
@@ -329,21 +325,21 @@ public class Map2Game implements GameInterface{
                     hideDialogue.play();
                 }
 
-                break; // Only one professor interaction at a time
+                break; // Only interact with one professor at a time
             }
         }
-        // Re-enable interaction when player moves away and comes back
+
+// Reset farewell if moved away from all professors
         if (!playerNearProfessor) {
             farewellTriggered = false;
-        }
-// Hide the dialogue box if player moved away from all professors
-        if (!playerNearProfessor && dialogueBox.isVisible()) {
-            dialogueBox.hide();
-            dialogueBox.getInputField().setVisible(false);
+
+            if (dialogueBox.isVisible()) {
+                dialogueBox.hide();
+                dialogueBox.getInputField().setVisible(false);
+            }
         }
 
-
-        // Render dialogue box
+// Render the dialogue box (ensure always rendered)
         DialogueBox.render(gc, player.getX(), player.getY(), canvas.getWidth(), canvas.getHeight());
 
 
