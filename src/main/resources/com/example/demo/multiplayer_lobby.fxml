@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:id="lobbyPane"
+            fx:controller="com.example.demo.MultiplayerLobbyController"
+            stylesheets="@wooden-theme.css"
+            styleClass="root-pane">
+
+        <children>
+                <Label text="🌐 Server IP Address:" layoutX="40" layoutY="10" styleClass="label"/>
+                <TextField fx:id="ipField" layoutX="40" layoutY="30" prefWidth="200" promptText="e.g. 192.168.0.105" styleClass="text-field"/>
+
+                <Label text="🎮 Enter Server Password:" layoutX="40" layoutY="70" styleClass="label"/>
+                <TextField fx:id="passwordField" layoutX="40" layoutY="100" prefWidth="200" styleClass="text-field"/>
+
+                <Label text="🧑 Player Name:" layoutX="40" layoutY="140" styleClass="label"/>
+                <TextField fx:id="nameField" layoutX="40" layoutY="170" prefWidth="200" styleClass="text-field"/>
+
+                <Button text="Join Game" layoutX="40" layoutY="220" onAction="#handleJoin" styleClass="wooden-button"/>
+
+                <TextArea fx:id="statusArea" layoutX="280" layoutY="30" prefWidth="300" prefHeight="220" editable="false" styleClass="text-area"/>
+        </children>
+</AnchorPane>
