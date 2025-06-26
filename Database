@@ -24,3 +24,13 @@ CREATE TABLE IF NOT EXISTS user_progress (
     avatar3_unlocked BOOLEAN DEFAULT FALSE,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
+
+CREATE TABLE user_avatars (
+    user_id INT NOT NULL,
+    avatar_id INT NOT NULL,
+    purchased BOOLEAN DEFAULT FALSE,
+    PRIMARY KEY (user_id, avatar_id),
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (avatar_id) REFERENCES avatars(avatar_id)
+);
+
