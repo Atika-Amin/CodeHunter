@@ -178,20 +178,30 @@ public class MultiplayerGame implements GameInterface {
     }
 
     private void onMessageReceive(String message) {
-        if (message.startsWith("MOVE:")) {
+        if (message.startsWith("POS_UPDATE:")) {
+            // Expected format: POS_UPDATE:playerName:x,y
             String[] parts = message.split(":");
-            if (parts.length == 4) {
+            if (parts.length == 3) {
                 String playerId = parts[1];
-                double x = Double.parseDouble(parts[2]);
-                double y = Double.parseDouble(parts[3]);
+                String[] coords = parts[2].split(",");
+                if (coords.length == 2) {
+                    try {
+                        double x = Double.parseDouble(coords[0]);
+                        double y = Double.parseDouble(coords[1]);
 
-                if (!playerId.equals(player.getPlayerName())) {
-                    otherPlayers.putIfAbsent(playerId, new OtherPlayer(playerId));
-                    otherPlayers.get(playerId).updatePosition(x, y);
+                        if (!playerId.equals(player.getPlayerName())) {
+                            otherPlayers.putIfAbsent(playerId, new OtherPlayer(playerId));
+                            otherPlayers.get(playerId).updatePosition(x, y);
+                        }
+                    } catch (NumberFormatException e) {
+                        System.out.println("⚠️ Invalid position format: " + message);
+                    }
                 }
             }
         }
+        // ... handle other messages like chat, join, leave, etc.
     }
+
 
     private void drawGameInternal() {
         GraphicsContext gc = canvas.getGraphicsContext2D();
