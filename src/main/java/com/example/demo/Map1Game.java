@@ -29,9 +29,12 @@ public class Map1Game implements GameInterface{
     private static final int MAP_HEIGHT = 30;
     private static final int VIEWPORT_WIDTH = 15;
     private static final int VIEWPORT_HEIGHT = 10;
+    private double cameraX = 0;
+    private double cameraY = 0;
+
 
     private Canvas canvas;
-    private Player player;
+    private PlayerInterface player;
     private TileMap tileMap;
     private Affine cameraTransform;
     private EnemyManager enemyManager;
@@ -86,7 +89,17 @@ public class Map1Game implements GameInterface{
         tileMap = new TileMap("src/main/resources/assets/maps/map1.tmj",
                 "src/main/resources/assets/maps/tileset.png");
 
-        player = new Player(1 * TILE_SIZE, 6.5 * TILE_SIZE, tileMap);
+        int selectedAvatar = Session.getSelectedAvatar(); // or get from DB
+
+        if (selectedAvatar == 0) {
+            player = new Player(1 * TILE_SIZE, 6.5 * TILE_SIZE, tileMap);
+        }
+        else if (selectedAvatar == 1) {
+            player = new Player2(1 * TILE_SIZE, 6.5 * TILE_SIZE, tileMap);
+        }
+        else if(selectedAvatar==2){
+            player=new Player3(1 * TILE_SIZE, 6.5 * TILE_SIZE, tileMap);
+        }
         cameraTransform = new Affine();
 
         enemyManager = new EnemyManager(tileMap,5);
@@ -140,29 +153,39 @@ public class Map1Game implements GameInterface{
 
         // ✅ Properly managed game loop
         gameLoop = new AnimationTimer() {
+            private long lastUpdate = 0;
+
             @Override
             public void handle(long now) {
+                if (lastUpdate == 0) {
+                    lastUpdate = now;
+                    return;
+                }
+
+                double deltaTime = (now - lastUpdate) / 1_000_000_000.0; // convert to seconds
+                lastUpdate = now;
+
                 if (player.isAlive() && !isPaused) {
+                    player.update(deltaTime); // ✅ Frame-independent player movement
                     enemyManager.update(player);
                     professorManager.update(player);
                     slime1Manager.update(player);
                     treasureManager.update(player);
                     explosionManager.update(player);
                     healthBarManager.update();
-                    System.out.println("Calling checkAndShowWin...");
-                    winManager.checkAndShowWin(treasureManager, root, canvas, Map1Game.this,3,mapName);
-
-
+                    winManager.checkAndShowWin(treasureManager, root, canvas, Map1Game.this, 5, mapName);
 
                     drawGame();
                 }
             }
         };
+
         gameLoop.start();
 
 
+
         stage.setScene(scene);
-        stage.setTitle("Map 1 - Tile Game");
+        stage.setTitle("Map 2 - Tile Game");
         stage.show();
     }
     private void cleanupAndGoHome() {
@@ -247,14 +270,21 @@ public class Map1Game implements GameInterface{
         double playerCenterX = player.getSprite().getX() + TILE_SIZE / 2;
         double playerCenterY = player.getSprite().getY() + TILE_SIZE / 2;
 
-        double offsetX = Math.max(0, Math.min(playerCenterX - (VIEWPORT_WIDTH * TILE_SIZE) / 2,
+        double targetX = Math.max(0, Math.min(playerCenterX - (VIEWPORT_WIDTH * TILE_SIZE) / 2,
                 MAP_WIDTH * TILE_SIZE - VIEWPORT_WIDTH * TILE_SIZE));
-        double offsetY = Math.max(0, Math.min(playerCenterY - (VIEWPORT_HEIGHT * TILE_SIZE) / 2,
+        double targetY = Math.max(0, Math.min(playerCenterY - (VIEWPORT_HEIGHT * TILE_SIZE) / 2,
                 MAP_HEIGHT * TILE_SIZE - VIEWPORT_HEIGHT * TILE_SIZE));
+
+// Smooth camera easing
+        double lerpFactor = 0.07; // Try 0.07 or 0.05 instead of 0.1
+        // The smaller, the smoother (0.1 = 10% closer per frame)
+        cameraX += (targetX - cameraX) * lerpFactor;
+        cameraY += (targetY - cameraY) * lerpFactor;
+
 
         cameraTransform.setToIdentity();
         cameraTransform.appendScale(2, 2);
-        cameraTransform.appendTranslation(-offsetX, -offsetY);
+        cameraTransform.appendTranslation(-cameraX, -cameraY);
 
         tileMap.drawMap(gc);
         enemyManager.render(gc);

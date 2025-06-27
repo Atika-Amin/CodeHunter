@@ -25,9 +25,11 @@ public class Map3Game implements GameInterface{
     private static final int MAP_HEIGHT = 30;
     private static final int VIEWPORT_WIDTH = 15;
     private static final int VIEWPORT_HEIGHT = 10;
+    private double cameraX = 0;
+    private double cameraY = 0;
 
     private Canvas canvas;
-    private Player player;
+    private PlayerInterface player;
     private TileMap tileMap;
     private Affine cameraTransform;
     private EnemyManager enemyManager;
@@ -87,7 +89,17 @@ public class Map3Game implements GameInterface{
         tileMap = new TileMap("src/main/resources/assets/maps/map4.tmj",
                 "src/main/resources/assets/maps/tileset.png");
 
-        player = new Player(1 * TILE_SIZE, 14.5 * TILE_SIZE, tileMap);
+        int selectedAvatar = Session.getSelectedAvatar(); // or get from DB
+
+        if (selectedAvatar == 0) {
+            player = new Player(1 * TILE_SIZE, 14.5 * TILE_SIZE, tileMap);
+        }
+        else if (selectedAvatar == 1) {
+            player = new Player2(1 * TILE_SIZE, 14.5 * TILE_SIZE, tileMap);
+        }
+        else if(selectedAvatar==2){
+            player=new Player3(1 * TILE_SIZE, 14.5 * TILE_SIZE, tileMap);
+        }
         cameraTransform = new Affine();
 
         enemyManager = new EnemyManager(tileMap,5);
@@ -170,6 +182,7 @@ public class Map3Game implements GameInterface{
 
         // Stop music and game loop
         SoundManager.stopMusic();
+        MusicManager.startMusic();
 
         if (gameLoop != null) {
             gameLoop.stop();
@@ -240,19 +253,26 @@ public class Map3Game implements GameInterface{
             }
             return; // Skip drawing rest
         }
-
+        gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
 
         double playerCenterX = player.getSprite().getX() + TILE_SIZE / 2;
         double playerCenterY = player.getSprite().getY() + TILE_SIZE / 2;
 
-        double offsetX = Math.max(0, Math.min(playerCenterX - (VIEWPORT_WIDTH * TILE_SIZE) / 2,
+        double targetX = Math.max(0, Math.min(playerCenterX - (VIEWPORT_WIDTH * TILE_SIZE) / 2,
                 MAP_WIDTH * TILE_SIZE - VIEWPORT_WIDTH * TILE_SIZE));
-        double offsetY = Math.max(0, Math.min(playerCenterY - (VIEWPORT_HEIGHT * TILE_SIZE) / 2,
+        double targetY = Math.max(0, Math.min(playerCenterY - (VIEWPORT_HEIGHT * TILE_SIZE) / 2,
                 MAP_HEIGHT * TILE_SIZE - VIEWPORT_HEIGHT * TILE_SIZE));
+
+// Smooth camera easing
+        double lerpFactor = 0.07; // Try 0.07 or 0.05 instead of 0.1
+        // The smaller, the smoother (0.1 = 10% closer per frame)
+        cameraX += (targetX - cameraX) * lerpFactor;
+        cameraY += (targetY - cameraY) * lerpFactor;
+
 
         cameraTransform.setToIdentity();
         cameraTransform.appendScale(2, 2);
-        cameraTransform.appendTranslation(-offsetX, -offsetY);
+        cameraTransform.appendTranslation(-cameraX, -cameraY);
 
         tileMap.drawMap(gc);
         enemyManager.render(gc);

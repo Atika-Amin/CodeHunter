@@ -33,6 +33,8 @@ public class MultiplayerGame implements GameInterface {
     private static final int MAP_HEIGHT = 30;
     private static final int VIEWPORT_WIDTH = 15;
     private static final int VIEWPORT_HEIGHT = 10;
+    private double cameraX = 0;
+    private double cameraY = 0;
 
     private Canvas canvas;
     private PlayerInterface player;
@@ -152,9 +154,20 @@ public class MultiplayerGame implements GameInterface {
         });
 
         gameLoop = new AnimationTimer() {
+            private long lastUpdate = 0;
+
             @Override
             public void handle(long now) {
+                if (lastUpdate == 0) {
+                    lastUpdate = now;
+                    return;
+                }
+
+                double deltaTime = (now - lastUpdate) / 1_000_000_000.0; // convert to seconds
+                lastUpdate = now;
+
                 if (player.isAlive() && !isPaused) {
+                    player.update(deltaTime); // ✅ Frame-independent player movement
                     enemyManager.update(player);
                     professorManager.update(player);
                     slime1Manager.update(player);
@@ -162,10 +175,12 @@ public class MultiplayerGame implements GameInterface {
                     explosionManager.update(player);
                     healthBarManager.update();
                     winManager.checkAndShowWin(treasureManager, root, canvas, MultiplayerGame.this, 5, mapName);
+
                     drawGame();
                 }
             }
         };
+
         gameLoop.start();
 
         System.out.println("Setting scene to stage...");
@@ -236,14 +251,21 @@ public class MultiplayerGame implements GameInterface {
         double playerCenterX = player.getSprite().getX() + TILE_SIZE / 2;
         double playerCenterY = player.getSprite().getY() + TILE_SIZE / 2;
 
-        double offsetX = Math.max(0, Math.min(playerCenterX - (VIEWPORT_WIDTH * TILE_SIZE) / 2,
+        double targetX = Math.max(0, Math.min(playerCenterX - (VIEWPORT_WIDTH * TILE_SIZE) / 2,
                 MAP_WIDTH * TILE_SIZE - VIEWPORT_WIDTH * TILE_SIZE));
-        double offsetY = Math.max(0, Math.min(playerCenterY - (VIEWPORT_HEIGHT * TILE_SIZE) / 2,
+        double targetY = Math.max(0, Math.min(playerCenterY - (VIEWPORT_HEIGHT * TILE_SIZE) / 2,
                 MAP_HEIGHT * TILE_SIZE - VIEWPORT_HEIGHT * TILE_SIZE));
+
+// Smooth camera easing
+        double lerpFactor = 0.07; // Try 0.07 or 0.05 instead of 0.1
+        // The smaller, the smoother (0.1 = 10% closer per frame)
+        cameraX += (targetX - cameraX) * lerpFactor;
+        cameraY += (targetY - cameraY) * lerpFactor;
+
 
         cameraTransform.setToIdentity();
         cameraTransform.appendScale(2, 2);
-        cameraTransform.appendTranslation(-offsetX, -offsetY);
+        cameraTransform.appendTranslation(-cameraX, -cameraY);
 
         tileMap.drawMap(gc);
         enemyManager.render(gc);

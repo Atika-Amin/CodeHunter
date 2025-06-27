@@ -13,12 +13,12 @@ import javafx.util.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Player implements PlayerInterface {
-    protected static final int WALK_SPRITE_SIZE = 32;   // Walking sprite size
+public class Player3 implements PlayerInterface{
+    private static final int WALK_SPRITE_SIZE = 32;   // Walking sprite size
     private static final int ATTACK_SPRITE_SIZE = 52; // Attack sprite size
     private static final int FRAME_COUNT = 3;         // 3 frames per movement
     private static final int ATTACK_FRAME_COUNT = 2;  // 2 frames per attack
-    private static final double SPEED = 85;
+    private static final double SPEED = 4.5;
     private static final int FRAME_DURATION = 200;
     private boolean movingUp = false, movingDown = false, movingLeft = false, movingRight = false;
     private String direction = "down"; // Default direction
@@ -28,7 +28,7 @@ public class Player implements PlayerInterface {
 
 
     private ImageView sprite;
-    protected Map<String, Image[]> animations;
+    private Map<String, Image[]> animations;
     private String currentAnimation = "down"; // Default animation (down walking)
     private int currentFrame = 0;
     private Timeline animationTimeline;
@@ -37,7 +37,7 @@ public class Player implements PlayerInterface {
     private boolean isAlive = true; // Player alive status
     private String playerName;
 
-    public Player(double x, double y, TileMap tileMap) {
+    public Player3(double x, double y, TileMap tileMap) {
         this.tileMap = tileMap;
         sprite = new ImageView();
         sprite.setX(x);
@@ -51,8 +51,7 @@ public class Player implements PlayerInterface {
         animationTimeline = new Timeline(new KeyFrame(Duration.millis(FRAME_DURATION), e -> nextFrame()));
         animationTimeline.setCycleCount(Animation.INDEFINITE);
     }
-
-    public Player(double x, double y, TileMap tileMap, String playerName) {
+    public Player3(double x, double y, TileMap tileMap, String playerName) {
         this.tileMap = tileMap;
         sprite = new ImageView();
         sprite.setX(x);
@@ -71,7 +70,6 @@ public class Player implements PlayerInterface {
     public String getPlayerName() {
         return playerName;
     }
-
     public double getX() {
         return sprite.getX();
     }
@@ -80,20 +78,20 @@ public class Player implements PlayerInterface {
         return sprite.getY();
     }
 
-    protected void loadAnimations() {
+    private void loadAnimations() {
         animations = new HashMap<>();
 
         // Movement animations (32x32)
-        animations.put("down", splitMovementSpritesheet("/assets/player_sprites/down.png"));
-        animations.put("up", splitMovementSpritesheet("/assets/player_sprites/top.png"));
-        animations.put("left", splitMovementSpritesheet("/assets/player_sprites/left.png"));
-        animations.put("right", splitMovementSpritesheet("/assets/player_sprites/right.png"));
+        animations.put("down", splitMovementSpritesheet("/assets/player3_sprites/down.png"));
+        animations.put("up", splitMovementSpritesheet("/assets/player3_sprites/top.png"));
+        animations.put("left", splitMovementSpritesheet("/assets/player3_sprites/left.png"));
+        animations.put("right", splitMovementSpritesheet("/assets/player3_sprites/right.png"));
 
         // Attack animations (64x64)
-        animations.put("attack_down", splitAttackSpritesheet("/assets/player_sprites/a-down.png"));
-        animations.put("attack_up", splitAttackSpritesheet("/assets/player_sprites/a-top.png"));
-        animations.put("attack_left", splitAttackSpritesheet("/assets/player_sprites/a-left.png"));
-        animations.put("attack_right", splitAttackSpritesheet("/assets/player_sprites/a-right.png"));
+        animations.put("attack_down", splitAttackSpritesheet("/assets/player3_sprites/a-down.png"));
+        animations.put("attack_up", splitAttackSpritesheet("/assets/player3_sprites/a-top.png"));
+        animations.put("attack_left", splitAttackSpritesheet("/assets/player3_sprites/a-left.png"));
+        animations.put("attack_right", splitAttackSpritesheet("/assets/player3_sprites/a-right.png"));
     }
 
     // Split the walking spritesheet (32x32)
@@ -120,7 +118,7 @@ public class Player implements PlayerInterface {
         return frames;
     }
 
-    protected void updateSprite() {
+    private void updateSprite() {
         if (animations.containsKey(currentAnimation)) {
             sprite.setImage(animations.get(currentAnimation)[currentFrame]);
 
@@ -225,9 +223,9 @@ public class Player implements PlayerInterface {
     }
 
 
-    @Override
+
     public boolean isAttacking() {
-        return isAttacking;
+        return currentAnimation.startsWith("attack");
     }
 
     public ImageView getSprite() {
@@ -263,7 +261,6 @@ public class Player implements PlayerInterface {
     public void update() {
 
     }
-
     @Override
     public void update(double deltaTime) {
         if (!isAlive) return;
@@ -302,9 +299,8 @@ public class Player implements PlayerInterface {
         }
     }
 
-        @Override
-        public void render (GraphicsContext gc){
+    @Override
+    public void render(GraphicsContext gc) {
 
-        }
     }
-
+}
