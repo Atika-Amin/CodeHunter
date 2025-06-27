@@ -1,4 +1,3 @@
-// MultiplayerClient.java
 package com.example.demo;
 
 import java.io.*;
@@ -10,11 +9,13 @@ public class MultiplayerClient {
     private BufferedReader in;
     private PrintWriter out;
     private Thread listenerThread;
+    private Consumer<String> messageListener;
 
-    public MultiplayerClient(String host, int port, String password, String playerName, Consumer<String> onMessageReceived) throws IOException {
+    public MultiplayerClient(String host, int port, String password, String playerName, Consumer<String> initialListener) throws IOException {
         socket = new Socket(host, port);
         in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         out = new PrintWriter(socket.getOutputStream(), true);
+        this.messageListener = initialListener;
 
         listenerThread = new Thread(() -> {
             try {
@@ -23,32 +24,41 @@ public class MultiplayerClient {
                 boolean sentName = false;
 
                 while ((line = in.readLine()) != null) {
-                    onMessageReceived.accept(line);
+                    if (messageListener != null) {
+                        messageListener.accept(line);
+                    }
 
                     if (!sentPassword && line.equals("ENTER_PASSWORD")) {
-                        out.println(password);  // send password only
+                        out.println(password);
                         sentPassword = true;
                     } else if (sentPassword && !sentName && line.equals("PASSWORD_ACCEPTED")) {
-                        out.println(playerName);  // send player name after acceptance
+                        out.println(playerName);
                         sentName = true;
                     }
                 }
             } catch (IOException e) {
-                onMessageReceived.accept("DISCONNECTED");
+                if (messageListener != null) {
+                    messageListener.accept("DISCONNECTED");
+                }
             }
         });
         listenerThread.setDaemon(true);
         listenerThread.start();
     }
 
-
     public void sendMessage(String msg) {
         out.println(msg);
     }
 
+    public void setMessageListener(Consumer<String> newListener) {
+        this.messageListener = newListener;
+    }
+
     public void close() {
         try {
-            if (socket != null) socket.close();
+            if (socket != null && !socket.isClosed()) {
+                socket.close();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

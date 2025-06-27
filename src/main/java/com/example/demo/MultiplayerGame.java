@@ -173,9 +173,11 @@ public class MultiplayerGame implements GameInterface {
         stage.show();
         System.out.println("Scene set and stage shown.");
 
+        client.setMessageListener(this::onMessageReceive);
+
     }
 
-    private void handleServerMessage(String message) {
+    private void onMessageReceive(String message) {
         if (message.startsWith("MOVE:")) {
             String[] parts = message.split(":");
             if (parts.length == 4) {
@@ -339,6 +341,7 @@ public class MultiplayerGame implements GameInterface {
     private void cleanupAndGoHome() {
         isPaused = true;
         SoundManager.stopMusic();
+        MusicManager.startMusic();
         if (gameLoop != null) {
             gameLoop.stop();
             gameLoop = null;
