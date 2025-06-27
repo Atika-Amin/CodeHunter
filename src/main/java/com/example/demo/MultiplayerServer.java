@@ -14,14 +14,17 @@ public class MultiplayerServer {
     private static final List<ClientHandler> clients = new CopyOnWriteArrayList<>();
 
     public static void main(String[] args) {
-        try {
-            String localIP = InetAddress.getLocalHost().getHostAddress();
+        String localIP = getLocalIPAddress();
+        if (localIP == null) {
+            System.out.println("⚠️ Unable to detect local IP address. Binding to all interfaces.");
+        } else {
             System.out.println("🌐 Multiplayer Server is running on IP: " + localIP + ", Port: " + PORT);
-        } catch (UnknownHostException e) {
-            System.out.println("⚠️ Unable to detect local IP address.");
         }
 
-        try (ServerSocket serverSocket = new ServerSocket(PORT)) {
+        try (ServerSocket serverSocket = (localIP != null)
+                ? new ServerSocket(PORT, 50, InetAddress.getByName(localIP))
+                : new ServerSocket(PORT)) { // fallback to all interfaces if IP not found
+
             while (true) {
                 Socket clientSocket = serverSocket.accept();
 
@@ -40,6 +43,31 @@ public class MultiplayerServer {
             System.out.println("❌ Server Error: " + e.getMessage());
             e.printStackTrace();
         }
+    }
+
+    private static String getLocalIPAddress() {
+        try {
+            Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
+            while (interfaces.hasMoreElements()) {
+                NetworkInterface ni = interfaces.nextElement();
+                if (ni.isUp() && !ni.isLoopback() && !ni.isVirtual()) {
+                    Enumeration<InetAddress> addresses = ni.getInetAddresses();
+                    while (addresses.hasMoreElements()) {
+                        InetAddress addr = addresses.nextElement();
+                        if (addr instanceof Inet4Address) {
+                            String ip = addr.getHostAddress();
+                            // Check if IP is private/local network IP
+                            if (ip.startsWith("192.") || ip.startsWith("10.") || ip.startsWith("172.")) {
+                                return ip;  // Return the first private IPv4 address found
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (SocketException e) {
+            System.out.println("⚠️ Error detecting local IP: " + e.getMessage());
+        }
+        return null;
     }
 
     static class ClientHandler extends Thread {
@@ -83,7 +111,6 @@ public class MultiplayerServer {
                         broadcastToAll(playerName + ": " + message);
                     }
                 }
-
 
             } catch (IOException e) {
                 System.out.println("❌ Connection with " + playerName + " lost: " + e.getMessage());

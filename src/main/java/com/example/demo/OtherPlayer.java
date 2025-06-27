@@ -13,6 +13,9 @@ public class OtherPlayer extends Player {
         // Start at dummy position (0, 0), you will update it later
         super(0, 0, null); // Assuming you don’t need tileMap for movement
         this.playerName = playerName;
+        // Fix: Load animations and initialize first sprite frame
+        super.loadAnimations(); // Protected method if needed
+        super.updateSprite();
     }
 
     public void updatePosition(double x, double y) {

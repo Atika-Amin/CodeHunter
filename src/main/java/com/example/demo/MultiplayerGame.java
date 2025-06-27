@@ -126,10 +126,11 @@ public class MultiplayerGame implements GameInterface {
         scene.setOnKeyPressed(event -> {
             if (player.isAlive() && !isPaused) {
                 player.handleKeyPress(event.getCode());
-                client.sendMessage("MOVE:" + playerName + ":" + player.getX() + ":" + player.getY());
+                client.sendMessage("POS:" + player.getX() + "," + player.getY());
                 drawGame();
             }
         });
+
 
         scene.setOnKeyReleased(event -> {
             if (player.isAlive() && !isPaused) {
