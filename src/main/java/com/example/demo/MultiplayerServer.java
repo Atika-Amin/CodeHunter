@@ -75,9 +75,15 @@ public class MultiplayerServer {
 
                 String message;
                 while ((message = in.readLine()) != null) {
-                    System.out.println("📨 [" + playerName + "]: " + message);
-                    broadcastToAll(playerName + ": " + message);
+                    if (message.startsWith("POS:")) {
+                        // Example: POS:150,200 → POS_UPDATE:Hamim07:150,200
+                        broadcastToAll("POS_UPDATE:" + playerName + ":" + message.substring(4));
+                    } else {
+                        System.out.println("📨 [" + playerName + "]: " + message);
+                        broadcastToAll(playerName + ": " + message);
+                    }
                 }
+
 
             } catch (IOException e) {
                 System.out.println("❌ Connection with " + playerName + " lost: " + e.getMessage());
