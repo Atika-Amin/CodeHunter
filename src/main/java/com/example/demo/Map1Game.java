@@ -270,21 +270,14 @@ public class Map1Game implements GameInterface{
         double playerCenterX = player.getSprite().getX() + TILE_SIZE / 2;
         double playerCenterY = player.getSprite().getY() + TILE_SIZE / 2;
 
-        double targetX = Math.max(0, Math.min(playerCenterX - (VIEWPORT_WIDTH * TILE_SIZE) / 2,
+        double offsetX = Math.max(0, Math.min(playerCenterX - (VIEWPORT_WIDTH * TILE_SIZE) / 2,
                 MAP_WIDTH * TILE_SIZE - VIEWPORT_WIDTH * TILE_SIZE));
-        double targetY = Math.max(0, Math.min(playerCenterY - (VIEWPORT_HEIGHT * TILE_SIZE) / 2,
+        double offsetY = Math.max(0, Math.min(playerCenterY - (VIEWPORT_HEIGHT * TILE_SIZE) / 2,
                 MAP_HEIGHT * TILE_SIZE - VIEWPORT_HEIGHT * TILE_SIZE));
-
-// Smooth camera easing
-        double lerpFactor = 0.07; // Try 0.07 or 0.05 instead of 0.1
-        // The smaller, the smoother (0.1 = 10% closer per frame)
-        cameraX += (targetX - cameraX) * lerpFactor;
-        cameraY += (targetY - cameraY) * lerpFactor;
-
 
         cameraTransform.setToIdentity();
         cameraTransform.appendScale(2, 2);
-        cameraTransform.appendTranslation(-cameraX, -cameraY);
+        cameraTransform.appendTranslation(-offsetX, -offsetY);
 
         tileMap.drawMap(gc);
         enemyManager.render(gc);
@@ -365,7 +358,8 @@ public class Map1Game implements GameInterface{
         }
 
         // Render dialogue box
-        DialogueBox.render(gc, player.getX(), player.getY(), canvas.getWidth(), canvas.getHeight());
+        dialogueBox.render(gc, player.getX(), player.getY(), canvas.getWidth(), canvas.getHeight());;
+
     }
 
     public void pauseGame() {

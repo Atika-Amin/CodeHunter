@@ -221,8 +221,6 @@ public class Map3Game implements GameInterface{
     private void drawGameInternal() {
         GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.setTransform(cameraTransform);
-        gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
-
 
         if (!player.isAlive()) {
             // Game over logic
@@ -258,21 +256,14 @@ public class Map3Game implements GameInterface{
         double playerCenterX = player.getSprite().getX() + TILE_SIZE / 2;
         double playerCenterY = player.getSprite().getY() + TILE_SIZE / 2;
 
-        double targetX = Math.max(0, Math.min(playerCenterX - (VIEWPORT_WIDTH * TILE_SIZE) / 2,
+        double offsetX = Math.max(0, Math.min(playerCenterX - (VIEWPORT_WIDTH * TILE_SIZE) / 2,
                 MAP_WIDTH * TILE_SIZE - VIEWPORT_WIDTH * TILE_SIZE));
-        double targetY = Math.max(0, Math.min(playerCenterY - (VIEWPORT_HEIGHT * TILE_SIZE) / 2,
+        double offsetY = Math.max(0, Math.min(playerCenterY - (VIEWPORT_HEIGHT * TILE_SIZE) / 2,
                 MAP_HEIGHT * TILE_SIZE - VIEWPORT_HEIGHT * TILE_SIZE));
-
-// Smooth camera easing
-        double lerpFactor = 0.07; // Try 0.07 or 0.05 instead of 0.1
-        // The smaller, the smoother (0.1 = 10% closer per frame)
-        cameraX += (targetX - cameraX) * lerpFactor;
-        cameraY += (targetY - cameraY) * lerpFactor;
-
 
         cameraTransform.setToIdentity();
         cameraTransform.appendScale(2, 2);
-        cameraTransform.appendTranslation(-cameraX, -cameraY);
+        cameraTransform.appendTranslation(-offsetX, -offsetY);
 
         tileMap.drawMap(gc);
         enemyManager.render(gc);
@@ -306,6 +297,8 @@ public class Map3Game implements GameInterface{
                 if (!dialogueBox.isVisible() && !farewellTriggered) {
                     List<String> introDialogue = dialogueManager.getIntroDialogue(mapName);
                     dialogueBox.show(introDialogue);
+                    System.out.println("Player is near professor. Attempting to show dialogue.");
+
                 }
 
                 // Only enable input if farewell hasn't been triggered
@@ -351,7 +344,8 @@ public class Map3Game implements GameInterface{
         }
 
         // Render dialogue box
-        DialogueBox.render(gc, player.getX(), player.getY(), canvas.getWidth(), canvas.getHeight());
+        dialogueBox.render(gc, player.getX(), player.getY(), canvas.getWidth(), canvas.getHeight());;
+
     }
 
     public void pauseGame() {

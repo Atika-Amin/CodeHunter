@@ -2,8 +2,10 @@ package com.example.demo;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -25,8 +27,8 @@ public class GamingModeController {
 
     @FXML private HBox titleBox;
     @FXML private VBox buttonBox;
-    @FXML private Button readingModeButton;
-    @FXML private Button gamingModeButton;
+    @FXML private Button multiplayerModeButton;
+    @FXML private Button singlePlayerModeButton;
     @FXML private Button TypingModeButton;
 
     @FXML private ImageView knowledgeLevelImage;
@@ -40,7 +42,7 @@ public class GamingModeController {
     @FXML private Label pointsValueLabel;
     @FXML private ImageView musicIcon, homeIcon;
     @FXML private Slider volumeSlider;
-
+    private static boolean serverStarted = false;
 
     @FXML
     private void initialize() {
@@ -140,7 +142,7 @@ public class GamingModeController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo/singlePlayer_mode.fxml")); // Correct FXML path
             Parent readingRoot = loader.load();
-            Stage stage = (Stage) readingModeButton.getScene().getWindow();
+            Stage stage = (Stage) singlePlayerModeButton.getScene().getWindow();
             Scene readingScene = new Scene(readingRoot);
             stage.setScene(readingScene);
             stage.setTitle("Reading Mode");
@@ -155,30 +157,46 @@ public class GamingModeController {
     private void openMultiPlayerMode() {
         SoundUtil.playClick();
         System.out.println("MultiPlayer opened.");
-        /*try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("gaming_mode.fxml"));
+        // Start server here
+        startServerInBackground();
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/demo/multiplayer_lobby.fxml"));
             Parent root = loader.load();
-            Stage stage = new Stage();
+            Stage stage = (Stage) multiplayerModeButton.getScene().getWindow(); // ensure multiplayerModeButton is defined with @FXML
             stage.setScene(new Scene(root));
+            stage.setTitle("Multiplayer Lobby");
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
-        }*/
+        }
     }
 
+    private void startServerInBackground() {
+        if (!serverStarted) {
+            serverStarted = true;
+            new Thread(() -> {
+                try {
+                    MultiplayerServer.main(new String[]{});
+                } catch (Exception e) {
+                    System.out.println("⚠️ Server might already be running: " + e.getMessage());
+                }
+            }).start();
+        }
+    }
     @FXML
-    private void openExtraFunMode() {
-        SoundUtil.playClick();
-        System.out.println("Extra Fun opened.");
-        /* try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("typing_mode.fxml"));
-            Parent root = loader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
+    private void openAvatarMode(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/demo/avatar.fxml"));
+            Parent avatarRoot = fxmlLoader.load();
+            Scene avatarScene = new Scene(avatarRoot);
+            Stage avatarStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            avatarStage.setTitle("Avatar Selection");
+            avatarStage.setScene(avatarScene);
+            avatarStage.show();
         } catch (IOException e) {
             e.printStackTrace();
-        } */
+        }
     }
     @FXML
     private void goBack(MouseEvent event) {

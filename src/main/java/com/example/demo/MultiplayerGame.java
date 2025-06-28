@@ -1,7 +1,7 @@
 package com.example.demo;
 
-import javafx.animation.AnimationTimer;
-import javafx.animation.PauseTransition;
+import javafx.animation.*;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -9,12 +9,16 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.CycleMethod;
 import javafx.scene.paint.LinearGradient;
 import javafx.scene.paint.Stop;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
 import javafx.scene.transform.Affine;
 import javafx.stage.Stage;
@@ -47,6 +51,10 @@ public class MultiplayerGame implements GameInterface {
 
     private TreasureManager4 treasureManager;
     private ExplosionManager explosionManager;
+
+    private Label timerLabel;
+    private int secondsElapsed = 0;
+    private MessengerBox messengerBox;
 
     private HealthBarManager healthBarManager;
     private WinManager winManager;
@@ -87,6 +95,17 @@ public class MultiplayerGame implements GameInterface {
 
         RestartButton restartButton = new RestartButton(stage, this);
         root.getChildren().add(restartButton.getNode());
+        messengerBox = new MessengerBox();
+        messengerBox.hide();
+        root.getChildren().add(messengerBox.getPane());
+
+        MessengerButton messengerButton = new MessengerButton(messengerBox);
+        root.getChildren().add(messengerButton.getNode());
+        messengerBox.setSendCallback(message -> {
+            client.sendMessage("CHAT:" + message); // Also send to server
+        });
+
+
 
         tileMap = new TileMap("src/main/resources/assets/maps/map3.tmj",
                 "src/main/resources/assets/maps/tileset.png");
@@ -124,6 +143,10 @@ public class MultiplayerGame implements GameInterface {
 
 
         Scene scene = new Scene(root);
+        Image messengerImg = new Image(getClass().getResourceAsStream("/assets/other/music_on.png"));
+        ImageView messengerIcon = new ImageView(messengerImg);
+        messengerIcon.setFitWidth(40);
+        messengerIcon.setFitHeight(40);
 
         scene.setOnKeyPressed(event -> {
             if (player.isAlive() && !isPaused) {
@@ -152,6 +175,29 @@ public class MultiplayerGame implements GameInterface {
                 drawGame();
             }
         });
+        timerLabel = new Label("Time: 0s");
+        timerLabel.setFont(Font.font("Arial", FontWeight.BOLD, 20));
+        timerLabel.setTextFill(Color.WHITE);
+        timerLabel.setStyle(
+                "-fx-background-color: linear-gradient(to bottom, #deb887, #a0522d);" +
+                        "-fx-border-color: #654321;" +
+                        "-fx-border-width: 6;" +
+                        "-fx-background-radius: 12;" +
+                        "-fx-border-radius: 12;" +
+                        "-fx-padding: 8 8 8 8;" // 🔽 reduced horizontal padding from 20 to 8
+        );
+        double canvasWidth = VIEWPORT_WIDTH * TILE_SIZE * 2;
+        timerLabel.setLayoutX(canvasWidth - 150); // 150 is label width + margin (adjust as needed)
+        timerLabel.setLayoutY(10);   // Y for top padding
+
+        root.getChildren().add(timerLabel);
+
+        Timeline timer = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
+            secondsElapsed++;
+            timerLabel.setText("Time: " + secondsElapsed + "s");
+        }));
+        timer.setCycleCount(Animation.INDEFINITE);
+        timer.play();
 
         gameLoop = new AnimationTimer() {
             private long lastUpdate = 0;
@@ -214,7 +260,19 @@ public class MultiplayerGame implements GameInterface {
                     }
                 }
             }
+        }else if (message.startsWith("CHAT:")) {
+            String chatMessage = message.substring(5); // Remove "CHAT:"
+            Platform.runLater(() -> {
+                messengerBox.addMessage(chatMessage);
+            });
+        } else if (message.startsWith("JOINED:")) {
+            String name = message.substring(7);
+            Platform.runLater(() -> messengerBox.addMessage("🟢 " + name + " joined the game."));
+        } else if (message.startsWith("LEFT:")) {
+            String name = message.substring(5);
+            Platform.runLater(() -> messengerBox.addMessage("🔴 " + name + " left the game."));
         }
+
         // ... handle other messages like chat, join, leave, etc.
     }
 

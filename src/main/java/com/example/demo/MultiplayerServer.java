@@ -108,7 +108,13 @@ public class MultiplayerServer {
                         broadcastToAll("POS_UPDATE:" + playerName + ":" + message.substring(4));
                     } else {
                         System.out.println("📨 [" + playerName + "]: " + message);
-                        broadcastToAll(playerName + ": " + message);
+                        if (message.startsWith("CHAT:")) {
+                            broadcastToAll("CHAT:" + playerName + ": " + message.substring(5));
+                        } else {
+                            broadcastToAll(playerName + ": " + message);
+                        }
+
+
                     }
                 }
 

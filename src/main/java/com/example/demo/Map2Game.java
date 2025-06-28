@@ -231,8 +231,6 @@ public class Map2Game implements GameInterface{
     private void drawGameInternal() {
         GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.setTransform(cameraTransform);
-        gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
-
 
         if (!player.isAlive()) {
             // Game over logic
@@ -268,21 +266,14 @@ public class Map2Game implements GameInterface{
         double playerCenterX = player.getSprite().getX() + TILE_SIZE / 2;
         double playerCenterY = player.getSprite().getY() + TILE_SIZE / 2;
 
-        double targetX = Math.max(0, Math.min(playerCenterX - (VIEWPORT_WIDTH * TILE_SIZE) / 2,
+        double offsetX = Math.max(0, Math.min(playerCenterX - (VIEWPORT_WIDTH * TILE_SIZE) / 2,
                 MAP_WIDTH * TILE_SIZE - VIEWPORT_WIDTH * TILE_SIZE));
-        double targetY = Math.max(0, Math.min(playerCenterY - (VIEWPORT_HEIGHT * TILE_SIZE) / 2,
+        double offsetY = Math.max(0, Math.min(playerCenterY - (VIEWPORT_HEIGHT * TILE_SIZE) / 2,
                 MAP_HEIGHT * TILE_SIZE - VIEWPORT_HEIGHT * TILE_SIZE));
-
-// Smooth camera easing
-        double lerpFactor = 0.07; // Try 0.07 or 0.05 instead of 0.1
-        // The smaller, the smoother (0.1 = 10% closer per frame)
-        cameraX += (targetX - cameraX) * lerpFactor;
-        cameraY += (targetY - cameraY) * lerpFactor;
-
 
         cameraTransform.setToIdentity();
         cameraTransform.appendScale(2, 2);
-        cameraTransform.appendTranslation(-cameraX, -cameraY);
+        cameraTransform.appendTranslation(-offsetX, -offsetY);
 
         tileMap.drawMap(gc);
         enemyManager.render(gc);
@@ -304,40 +295,35 @@ public class Map2Game implements GameInterface{
                 drawWidth,
                 drawHeight
         );
-
-        // === Dialogue Triggering Logic ===
+        // Show professor dialogue when near
         boolean playerNearProfessor = false;
+        // Add this flag at the top of your class:
 
         for (Professor professor : professorManager.getProfessors()) {
             if (professor.isNearPlayer(player)) {
                 playerNearProfessor = true;
 
-                // Show intro dialogue if not already shown
+                // Show intro dialogue if not already visible
                 if (!dialogueBox.isVisible() && !farewellTriggered) {
                     List<String> introDialogue = dialogueManager.getIntroDialogue(mapName);
-                    if (introDialogue != null && !introDialogue.isEmpty()) {
-                        dialogueBox.show(introDialogue);
-                        System.out.println("Player is near professor. Showing intro dialogue.");
-                    }
+                    dialogueBox.show(introDialogue);
+                    System.out.println("Player is near professor. Attempting to show dialogue.");
+
                 }
 
-                // Enable input field
+                // Only enable input if farewell hasn't been triggered
                 if (!farewellTriggered) {
                     dialogueBox.getInputField().setDisable(false);
                     dialogueBox.getInputField().setVisible(true);
                 }
 
-                // Handle farewell input
                 String inputText = dialogueBox.getInputField().getText().trim().toLowerCase();
                 if ((inputText.equals("thank you") || inputText.equals("exit")) && !farewellTriggered) {
-                    farewellTriggered = true;
+                    farewellTriggered = true; // Prevent re-trigger
 
-                    List<String> farewellDialogue = DialogueManager.getResponseBasedOnInput(inputText, mapName);
-                    if (farewellDialogue != null && !farewellDialogue.isEmpty()) {
-                        dialogueBox.show(farewellDialogue);
-                    }
+                    List<String> farewellDialogue = DialogueManager.getResponseBasedOnInput(inputText,mapName);
+                    dialogueBox.show(farewellDialogue);
 
-                    // Disable input field after 2 seconds
                     PauseTransition disableInput = new PauseTransition(Duration.seconds(2));
                     disableInput.setOnFinished(e -> {
                         dialogueBox.getInputField().setDisable(true);
@@ -346,7 +332,6 @@ public class Map2Game implements GameInterface{
                     });
                     disableInput.play();
 
-                    // Hide dialogue after 6 seconds
                     PauseTransition hideDialogue = new PauseTransition(Duration.seconds(6));
                     hideDialogue.setOnFinished(e -> {
                         dialogueBox.hide();
@@ -355,23 +340,21 @@ public class Map2Game implements GameInterface{
                     hideDialogue.play();
                 }
 
-                break; // Only interact with one professor at a time
+                break; // Only one professor interaction at a time
             }
         }
-
-// Reset farewell if moved away from all professors
+        // Re-enable interaction when player moves away and comes back
         if (!playerNearProfessor) {
             farewellTriggered = false;
-
-            if (dialogueBox.isVisible()) {
-                dialogueBox.hide();
-                dialogueBox.getInputField().setVisible(false);
-            }
+        }
+// Hide the dialogue box if player moved away from all professors
+        if (!playerNearProfessor && dialogueBox.isVisible()) {
+            dialogueBox.hide();
+            dialogueBox.getInputField().setVisible(false);
         }
 
-// Render the dialogue box (ensure always rendered)
-        DialogueBox.render(gc, player.getX(), player.getY(), canvas.getWidth(), canvas.getHeight());
-
+        // Render dialogue box
+        dialogueBox.render(gc, player.getX(), player.getY(), canvas.getWidth(), canvas.getHeight());;
 
     }
 
