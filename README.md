@@ -17,7 +17,7 @@ Built the Typing Practice mini-game where users practice coding speed and accura
 🌐 Multiplayer Mode (Socket Handling):
 Implemented real-time multiplayer gameplay using Java Sockets and multi-threading. Handled server-client architecture for player synchronization, team-up coding challenges, and communication flow.
 
-### 🔸 Atika Amin
+### 🔸 [**Atika Amin**](https://github.com/atika-amin)
 
 🕹️ Gaming Mode (Single Player):
 Built the core gameplay mechanics — player movement, map transitions, enemy AI, item collection, and cursed box behavior.
