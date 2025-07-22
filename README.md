@@ -6,7 +6,7 @@
 
 ## 👥 Contributors
 
-### 🔹 Hamim
+### 🔹 [**Hamim**](https://github.com/hamim0047)
 
 📚 Reading Mode:
 Designed and implemented the entire reading experience — including interactive tutorials, multi-slide navigation, and integrated coding quizzes to assess player knowledge.
