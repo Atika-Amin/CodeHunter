@@ -4,6 +4,33 @@
 
 ---
 
+## 👥 Contributors
+
+###🔹 Hamim
+📚 Reading Mode:
+Designed and implemented the entire reading experience — including interactive tutorials, multi-slide navigation, and integrated coding quizzes to assess player knowledge.
+
+🧩 Gaming Mode Integration:
+Developed the logic to unlock and transition between Reading and Gaming Modes based on the user’s knowledge level.
+
+🌐 Multiplayer Mode (Socket Handling):
+Implemented real-time multiplayer gameplay using Java Sockets and multi-threading. Handled server-client architecture for player synchronization, team-up coding challenges, and communication flow.
+
+###🔸 Atika Amin
+🕹️ Gaming Mode (Single Player):
+Built the core gameplay mechanics — player movement, map transitions, enemy AI, item collection, and cursed box behavior.
+
+🗺️ Game Map Design:
+Designed and structured all 2D Tiled maps for the game environment, including roads, terrains, buildings, obstacles, and level zones. Integrated path restrictions and logic zones using Tiled map properties.
+
+👾 Player & Enemy Handling:
+Developed player animation, controls, collision detection, and enemy patrol behavior. Managed enemy-player interaction logic (lives lost, hints triggered, etc.).
+
+🤝 Multiplayer Map & Game Handling:
+Designed the dedicated multiplayer maps and coordinated enemy handling logic for synchronized gameplay across clients. Focused on cooperative/competitive map interactions and balance.
+
+---
+
 ## 📋 Table of Contents
 - [Features](#features)
 - [Game Modes](#game-modes)
