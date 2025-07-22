@@ -6,7 +6,8 @@
 
 ## 👥 Contributors
 
-###🔹 Hamim
+### 🔹 Hamim
+
 📚 Reading Mode:
 Designed and implemented the entire reading experience — including interactive tutorials, multi-slide navigation, and integrated coding quizzes to assess player knowledge.
 
@@ -16,7 +17,8 @@ Developed the logic to unlock and transition between Reading and Gaming Modes ba
 🌐 Multiplayer Mode (Socket Handling):
 Implemented real-time multiplayer gameplay using Java Sockets and multi-threading. Handled server-client architecture for player synchronization, team-up coding challenges, and communication flow.
 
-###🔸 Atika Amin
+### 🔸 Atika Amin
+
 🕹️ Gaming Mode (Single Player):
 Built the core gameplay mechanics — player movement, map transitions, enemy AI, item collection, and cursed box behavior.
 
