@@ -11,8 +11,8 @@
 📚 Reading Mode:
 Designed and implemented the entire reading experience — including interactive tutorials, multi-slide navigation, and integrated coding quizzes to assess player knowledge.
 
-🧩 Gaming Mode Integration:
-Developed the logic to unlock and transition between Reading and Gaming Modes based on the user’s knowledge level.
+⌨️ Typing Mode:
+Built the Typing Practice mini-game where users practice coding speed and accuracy. Included keyboard interaction, timer, scoring logic, and real-time feedback.
 
 🌐 Multiplayer Mode (Socket Handling):
 Implemented real-time multiplayer gameplay using Java Sockets and multi-threading. Handled server-client architecture for player synchronization, team-up coding challenges, and communication flow.
